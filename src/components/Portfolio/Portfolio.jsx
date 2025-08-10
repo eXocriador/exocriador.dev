@@ -42,7 +42,7 @@ const projectsData = [
   }
 ];
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = React.memo(({ project, index }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.3
@@ -55,7 +55,7 @@ const ProjectCard = ({ project, index }) => {
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
       <div className={styles.projectImage}>
-        <img src={project.imgSrc} alt={project.title} />
+        <img src={project.imgSrc} alt={project.title} loading="lazy" />
         <div className={styles.projectOverlay}>
           <div className={styles.projectLinks}>
             <a
@@ -92,7 +92,7 @@ const ProjectCard = ({ project, index }) => {
       </div>
     </div>
   );
-};
+});
 
 const Portfolio = () => {
   return (

@@ -21,7 +21,7 @@ const servicesData = [
   }
 ];
 
-const ServiceCard = ({ service, index }) => {
+const ServiceCard = React.memo(({ service, index }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.3
@@ -38,7 +38,7 @@ const ServiceCard = ({ service, index }) => {
       <p>{service.desc}</p>
     </div>
   );
-};
+});
 
 const Services = () => {
   return (
