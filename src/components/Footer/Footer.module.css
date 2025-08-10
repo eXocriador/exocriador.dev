@@ -1,0 +1,29 @@
+.footerContainer {
+  padding: 32px 5%;
+  border-top: 1px solid rgba(240, 240, 240, 0.08);
+  background: rgba(10, 10, 26, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 16px;
+}
+
+.socialLinks a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.socialLinks a:hover {
+  color: #9aa0ff;
+  transform: translateY(-1px);
+}
+
+.copyright {
+  opacity: 0.9;
+}

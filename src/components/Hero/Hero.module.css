@@ -1,0 +1,44 @@
+.heroSection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.heroTitle {
+  font-size: clamp(40px, 8vw, 84px);
+  margin: 0 0 12px;
+  background: linear-gradient(90deg, #ffffff 0%, #8ea2ff 50%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroSubtitle {
+  font-size: clamp(18px, 3vw, 28px);
+  opacity: 0.9;
+  margin: 0 0 28px;
+}
+
+.buttonsRow {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  cursor: pointer;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-1px);
+}

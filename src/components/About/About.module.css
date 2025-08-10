@@ -1,0 +1,46 @@
+.aboutContainer {
+  padding: 64px 5%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .aboutContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stackColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.techTag {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.techTag:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}

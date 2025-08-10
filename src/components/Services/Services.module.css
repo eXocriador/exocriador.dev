@@ -1,0 +1,48 @@
+.cardsContainer {
+  padding: 64px 5%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .cardsContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .cardsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.serviceCard {
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 220ms ease, box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.icon {
+  font-size: 28px;
+}
+
+.cardTitle {
+  margin: 10px 0 6px;
+}
+
+.cardDesc {
+  opacity: 0.9;
+}

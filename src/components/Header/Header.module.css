@@ -1,0 +1,52 @@
+.headerContainer {
+  position: fixed;
+  width: 100%;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(10, 10, 30, 0.7);
+  backdrop-filter: blur(10px);
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+.navLink {
+  color: inherit;
+  opacity: 0.9;
+  text-decoration: none;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.navLink:hover {
+  color: #9aa0ff;
+  opacity: 1;
+}
+
+.ctaButton {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: inherit;
+  background: linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(90deg, #646cff, #00d4ff) border-box;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  box-shadow: 0 0 12px rgba(100, 108, 255, 0.45),
+    0 0 24px rgba(0, 212, 255, 0.25);
+  transform: translateY(-1px);
+}
