@@ -32,6 +32,14 @@
   line-height: 1.1;
   font-weight: 700;
   color: var(--text-primary);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.title.animateIn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .gradientText {
@@ -52,6 +60,14 @@
   color: var(--text-secondary);
   font-weight: 500;
   min-height: 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.subtitle.animateIn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .description {
@@ -60,6 +76,14 @@
   margin: 0 auto var(--spacing-2xl);
   color: var(--text-muted);
   line-height: 1.6;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+}
+
+.description.animateIn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .ctaRow {
@@ -87,6 +111,23 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease,
+    all var(--transition-normal);
+}
+
+.ctaButton.animateIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ctaButton:nth-child(1) {
+  transition-delay: 0.6s;
+}
+
+.ctaButton:nth-child(2) {
+  transition-delay: 0.8s;
 }
 
 .ctaButton::before {

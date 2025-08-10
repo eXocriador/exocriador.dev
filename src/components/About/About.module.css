@@ -2,6 +2,14 @@
   padding: var(--spacing-3xl) var(--spacing-lg);
   max-width: 1200px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.aboutSection.animateIn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .aboutContainer {

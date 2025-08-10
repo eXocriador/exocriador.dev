@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { TypeAnimation } from "react-type-animation";
 import { Particles } from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
@@ -13,6 +13,24 @@ const Hero = () => {
   const particlesLoaded = useCallback(async (container) => {
     console.log("Particles loaded", container);
   }, []);
+
+  const [titleRef, titleInView] = useInView({ triggerOnce: true, delay: 0 });
+  const [subtitleRef, subtitleInView] = useInView({
+    triggerOnce: true,
+    delay: 200
+  });
+  const [descriptionRef, descriptionInView] = useInView({
+    triggerOnce: true,
+    delay: 400
+  });
+  const [button1Ref, button1InView] = useInView({
+    triggerOnce: true,
+    delay: 600
+  });
+  const [button2Ref, button2InView] = useInView({
+    triggerOnce: true,
+    delay: 800
+  });
 
   return (
     <section className={styles.heroSection} id="hero">
@@ -92,21 +110,19 @@ const Hero = () => {
       />
 
       <div className={styles.heroContent}>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className={styles.title}
+        <h1
+          ref={titleRef}
+          className={`${styles.title} ${titleInView ? styles.animateIn : ""}`}
         >
           Crafting Digital Experiences That{" "}
           <span className={styles.gradientText}>Inspire</span>
-        </motion.h1>
+        </h1>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className={styles.subtitle}
+        <h2
+          ref={subtitleRef}
+          className={`${styles.subtitle} ${
+            subtitleInView ? styles.animateIn : ""
+          }`}
         >
           <TypeAnimation
             sequence={[
@@ -121,36 +137,36 @@ const Hero = () => {
             speed={50}
             repeat={Infinity}
           />
-        </motion.h2>
+        </h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className={styles.description}
+        <p
+          ref={descriptionRef}
+          className={`${styles.description} ${
+            descriptionInView ? styles.animateIn : ""
+          }`}
         >
           I transform complex ideas into elegant, user-friendly interfaces that
           captivate and engage. Every pixel, every animation, every interaction
           is crafted with purpose.
-        </motion.p>
+        </p>
 
         <div className={styles.ctaRow}>
-          <motion.button
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className={styles.ctaButton}
+          <button
+            ref={button1Ref}
+            className={`${styles.ctaButton} ${
+              button1InView ? styles.animateIn : ""
+            }`}
           >
             Learn More
-          </motion.button>
-          <motion.button
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className={`${styles.ctaButton} ${styles.secondaryButton}`}
+          </button>
+          <button
+            ref={button2Ref}
+            className={`${styles.ctaButton} ${styles.secondaryButton} ${
+              button2InView ? styles.animateIn : ""
+            }`}
           >
             See My Work
-          </motion.button>
+          </button>
         </div>
       </div>
     </section>

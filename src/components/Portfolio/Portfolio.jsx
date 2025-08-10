@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import styles from "./Portfolio.module.css";
 
@@ -42,57 +42,65 @@ const projectsData = [
   }
 ];
 
+const ProjectCard = ({ project, index }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3
+  });
+
+  return (
+    <div
+      ref={ref}
+      className={`${styles.projectCard} ${inView ? styles.animateIn : ""}`}
+      style={{ transitionDelay: `${index * 0.1}s` }}
+    >
+      <div className={styles.projectImage}>
+        <img src={project.imgSrc} alt={project.title} />
+        <div className={styles.projectOverlay}>
+          <div className={styles.projectLinks}>
+            <a
+              href={project.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${project.title} on GitHub`}
+            >
+              <FaGithub />
+            </a>
+            <a
+              href={project.links.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${project.title} live demo`}
+            >
+              <FaExternalLinkAlt />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.projectContent}>
+        <h3 className={styles.projectTitle}>{project.title}</h3>
+        <p className={styles.projectDescription}>{project.description}</p>
+
+        <div className={styles.projectTags}>
+          {project.tags.map((tag, tagIndex) => (
+            <span key={tagIndex} className={styles.projectTag}>
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Portfolio = () => {
   return (
     <section id="portfolio" className={styles.portfolioSection}>
       <h2>My Recent Work</h2>
       <div className={styles.projectsGrid}>
         {projectsData.map((project, index) => (
-          <motion.div
-            key={project.id}
-            className={styles.projectCard}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-          >
-            <div className={styles.projectImage}>
-              <img src={project.imgSrc} alt={project.title} />
-              <div className={styles.projectOverlay}>
-                <div className={styles.projectLinks}>
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.title} on GitHub`}
-                  >
-                    <FaGithub />
-                  </a>
-                  <a
-                    href={project.links.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.title} live demo`}
-                  >
-                    <FaExternalLinkAlt />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.projectContent}>
-              <h3 className={styles.projectTitle}>{project.title}</h3>
-              <p className={styles.projectDescription}>{project.description}</p>
-
-              <div className={styles.projectTags}>
-                {project.tags.map((tag, tagIndex) => (
-                  <span key={tagIndex} className={styles.projectTag}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </section>

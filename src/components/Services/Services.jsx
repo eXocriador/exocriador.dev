@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { FaCode, FaPalette, FaReact } from "react-icons/fa6";
 import styles from "./Services.module.css";
 
@@ -21,24 +21,32 @@ const servicesData = [
   }
 ];
 
+const ServiceCard = ({ service, index }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3
+  });
+
+  return (
+    <div
+      ref={ref}
+      className={`${styles.serviceCard} ${inView ? styles.animateIn : ""}`}
+      style={{ transitionDelay: `${index * 0.1}s` }}
+    >
+      <div className={styles.serviceIcon}>{service.icon}</div>
+      <h3 className={styles.cardTitle}>{service.title}</h3>
+      <p>{service.desc}</p>
+    </div>
+  );
+};
+
 const Services = () => {
   return (
     <section id="services" className={styles.servicesSection}>
       <h2>What I Offer</h2>
       <div className={styles.cardsContainer}>
         {servicesData.map((service, index) => (
-          <motion.div
-            key={index}
-            className={styles.serviceCard}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <div className={styles.serviceIcon}>{service.icon}</div>
-            <h3 className={styles.cardTitle}>{service.title}</h3>
-            <p>{service.desc}</p>
-          </motion.div>
+          <ServiceCard key={index} service={service} index={index} />
         ))}
       </div>
     </section>

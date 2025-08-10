@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import styles from "./About.module.css";
 
 const techStack = [
@@ -24,14 +24,16 @@ const techStack = [
 ];
 
 const About = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3
+  });
+
   return (
-    <motion.section
+    <section
+      ref={ref}
       id="about"
-      className={styles.aboutSection}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6 }}
+      className={`${styles.aboutSection} ${inView ? styles.animateIn : ""}`}
     >
       <div className={styles.aboutContainer}>
         <div className={styles.textColumn}>
@@ -68,7 +70,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
