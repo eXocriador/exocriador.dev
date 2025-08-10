@@ -1,42 +1,43 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaCode, FaPalette, FaReact } from "react-icons/fa6";
 import styles from "./Services.module.css";
 
-const Services = () => {
-  const services = [
-    {
-      icon: "⚡️",
-      title: "Фронтенд-розробка",
-      desc: "Швидкі та доступні інтерфейси з фокусом на UX і продуктивності."
-    },
-    {
-      icon: "🎨",
-      title: "Анімації та взаємодії",
-      desc: "Живі анімації, мікровзаємодії та плавні переходи для сучасних продуктів."
-    },
-    {
-      icon: "🧩",
-      title: "React-архітектура",
-      desc: "Чисті компоненти, зрозуміла структура та масштабовані рішення."
-    }
-  ];
+const servicesData = [
+  {
+    icon: <FaCode />,
+    title: "Frontend Development",
+    desc: "Fast and accessible interfaces with focus on UX and performance. I create responsive, modern web applications that work seamlessly across all devices."
+  },
+  {
+    icon: <FaPalette />,
+    title: "Animations & Interactions",
+    desc: "Living animations, micro-interactions, and smooth transitions for modern products. Every movement is crafted to enhance user experience and engagement."
+  },
+  {
+    icon: <FaReact />,
+    title: "React Architecture",
+    desc: "Clean components, clear structure, and scalable solutions. I build maintainable React applications with best practices and modern patterns."
+  }
+];
 
+const Services = () => {
   return (
-    <section id="services">
-      <h2>Що я пропоную</h2>
+    <section id="services" className={styles.servicesSection}>
+      <h2>What I Offer</h2>
       <div className={styles.cardsContainer}>
-        {services.map(({ icon, title, desc }) => (
+        {servicesData.map((service, index) => (
           <motion.div
-            key={title}
+            key={index}
             className={styles.serviceCard}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <div className={styles.icon}>{icon}</div>
-            <h3 className={styles.cardTitle}>{title}</h3>
-            <p className={styles.cardDesc}>{desc}</p>
+            <div className={styles.serviceIcon}>{service.icon}</div>
+            <h3 className={styles.cardTitle}>{service.title}</h3>
+            <p>{service.desc}</p>
           </motion.div>
         ))}
       </div>

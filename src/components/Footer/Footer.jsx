@@ -1,4 +1,5 @@
 import React from "react";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
@@ -6,32 +7,32 @@ const Footer = () => {
     <footer className={styles.footerContainer}>
       <div className={styles.socialLinks}>
         <a
-          href="https://github.com/"
+          href="https://github.com/eXocriador"
           target="_blank"
-          rel="noreferrer"
-          aria-label="GitHub"
+          rel="noopener noreferrer"
+          aria-label="Visit my GitHub profile"
         >
-          GitHub
+          <FaGithub />
         </a>
         <a
-          href="https://www.linkedin.com/"
+          href="https://linkedin.com/in/exocriador"
           target="_blank"
-          rel="noreferrer"
-          aria-label="LinkedIn"
+          rel="noopener noreferrer"
+          aria-label="Visit my LinkedIn profile"
         >
-          LinkedIn
+          <FaLinkedin />
         </a>
         <a
-          href="https://twitter.com/"
+          href="https://twitter.com/exocriador"
           target="_blank"
-          rel="noreferrer"
-          aria-label="Twitter"
+          rel="noopener noreferrer"
+          aria-label="Visit my Twitter profile"
         >
-          Twitter
+          <FaXTwitter />
         </a>
       </div>
       <p className={styles.copyright}>
-        © {new Date().getFullYear()} MyName.dev. All rights reserved.
+        © {new Date().getFullYear()} eXocriador. All rights reserved.
       </p>
     </footer>
   );

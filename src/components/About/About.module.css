@@ -1,46 +1,75 @@
-.aboutContainer {
-  padding: 64px 5%;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 32px;
+.aboutSection {
+  padding: var(--spacing-3xl) var(--spacing-lg);
   max-width: 1200px;
   margin: 0 auto;
 }
 
-@media (max-width: 900px) {
+.aboutContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-2xl);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
   .aboutContainer {
     grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
   }
 }
 
-.textColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.textColumn h2,
+.stackColumn h2 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-3xl);
+  color: var(--text-primary);
 }
 
-.stackColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.textColumn p {
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
 }
 
-.tagsRow {
+.techTagsContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--spacing-sm);
 }
 
 .techTag {
-  display: inline-block;
-  padding: 8px 12px;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  transition: transform 160ms ease, background-color 160ms ease;
+  background-color: rgba(255, 107, 53, 0.1);
+  border: 1px solid var(--border-primary);
+  color: var(--accent-primary);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
 }
 
 .techTag:hover {
-  background-color: rgba(255, 255, 255, 0.12);
-  transform: translateY(-1px);
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .textColumn h2,
+  .stackColumn h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .textColumn p {
+    font-size: var(--font-size-base);
+  }
 }
