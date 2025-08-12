@@ -57,9 +57,7 @@ const About = () => {
           <div className={styles.photoPlaceholder}>
             {/* Placeholder for high-quality personal photo */}
             <div className={styles.photoFrame}>
-              <div className={styles.photoContent}>
-                <span>Photo</span>
-              </div>
+              <div className={styles.photoContent}></div>
             </div>
           </div>
         </div>

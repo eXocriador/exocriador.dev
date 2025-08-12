@@ -60,6 +60,7 @@
   border: 2px solid var(--border-primary);
   background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
   box-shadow: 0 8px 32px var(--shadow-primary);
+  margin-top: 4rem;
 }
 
 .photoContent {
@@ -71,6 +72,10 @@
   color: var(--text-secondary);
   font-size: var(--font-size-lg);
   font-weight: 500;
+  background-image: url("/img/profile-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Tech Section Styles */
