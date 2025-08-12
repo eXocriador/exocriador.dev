@@ -1,7 +1,8 @@
 .servicesSection {
-  padding: var(--spacing-3xl) var(--spacing-lg);
-  max-width: 1200px;
+  width: var(--section-width);
+  max-width: var(--section-max-width);
   margin: 0 auto;
+  padding: var(--spacing-3xl) 0;
   text-align: center;
 }
 
@@ -168,7 +169,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .servicesSection {
-    padding: var(--spacing-2xl) var(--spacing-md);
+    padding: var(--spacing-2xl) 0;
   }
 
   .cardsContainer {

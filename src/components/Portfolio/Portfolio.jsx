@@ -220,17 +220,6 @@ const Portfolio = () => {
           <FaChevronRight />
         </button>
       </div>
-
-      <div className={styles.scrollIndicator}>
-        <span className={styles.indicatorText}>
-          Scroll to explore {projectsData.length} projects
-        </span>
-        <div className={styles.indicatorDots}>
-          {projectsData.map((_, index) => (
-            <span key={index} className={styles.indicatorDot} />
-          ))}
-        </div>
-      </div>
     </section>
   );
 };

@@ -1,8 +1,15 @@
 .footerContainer {
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  width: 100%;
+  padding: var(--spacing-2xl) 0;
   text-align: center;
   border-top: 1px solid var(--border-primary);
   background: var(--bg-secondary);
+}
+
+.footerContent {
+  width: var(--section-width);
+  max-width: var(--section-max-width);
+  margin: 0 auto;
 }
 
 .socialLinks {
@@ -43,7 +50,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .footerContainer {
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-xl) 0;
   }
 
   .socialLinks {

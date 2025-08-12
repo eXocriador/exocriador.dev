@@ -78,6 +78,10 @@
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+
+  /* Layout */
+  --section-width: 90%; /* 100% - 5% зліва - 5% справа */
+  --section-max-width: 1440px; /* Обмежуємо максимальну ширину контенту */
 }
 
 * {
@@ -178,12 +182,16 @@ button {
 
 /* Utility Classes */
 .container {
-  max-width: 1200px;
+  width: var(--section-width);
+  max-width: var(--section-max-width);
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
 }
 
 .section {
+  width: var(--section-width);
+  max-width: var(--section-max-width);
+  margin: 0 auto;
   padding: var(--spacing-3xl) 0;
 }
 
@@ -234,6 +242,7 @@ button {
     --font-size-base: 14px;
     --font-size-4xl: 36px;
     --font-size-5xl: 48px;
+    --section-width: 95%; /* Збільшуємо ширину на мобільних для кращого використання простору */
   }
 
   .section {
@@ -243,5 +252,11 @@ button {
   h2::after {
     width: 40px;
     height: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-width: 98%; /* Максимальне використання простору на малих екранах */
   }
 }
