@@ -1,34 +1,119 @@
 .portfolioSection {
-  padding: var(--spacing-3xl) var(--spacing-lg);
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .portfolioSection h2 {
-  margin-bottom: var(--spacing-2xl);
-  font-size: var(--font-size-4xl);
-  color: var(--text-primary);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  text-align: center;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.projectsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: var(--spacing-2xl);
+.projectsContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.scrollButton:hover {
+  background: linear-gradient(135deg, #e55a2b, #e8851a);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.scrollButton:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.scrollLeft {
+  left: 10px;
+}
+
+.scrollRight {
+  right: 10px;
+}
+
+.projectsScroll {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  margin: 0 60px; /* Make space for navigation buttons */
+}
+
+.projectsScroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.projectsScroll:hover {
+  scrollbar-width: thin;
+}
+
+.projectsScroll:hover::-webkit-scrollbar {
+  display: block;
+  height: 8px;
+}
+
+.projectsScroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.projectsScroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  border-radius: 4px;
+}
+
+.projectsScroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #e55a2b, #e8851a);
 }
 
 .projectCard {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-primary);
-  border-radius: var(--radius-lg);
+  min-width: 400px;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
   overflow: hidden;
-  transition: all var(--transition-normal);
-  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease, transform 0.6s ease,
-    all var(--transition-normal);
+  transform: translateY(30px);
 }
 
 .projectCard.animateIn {
@@ -37,26 +122,27 @@
 }
 
 .projectCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px var(--shadow-secondary);
-  border-color: var(--accent-primary);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+  border-color: rgba(255, 107, 53, 0.3);
 }
 
 .projectImage {
   position: relative;
-  overflow: hidden;
+  width: 100%;
   height: 250px;
+  overflow: hidden;
 }
 
 .projectImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
+  transition: transform 0.4s ease;
 }
 
 .projectCard:hover .projectImage img {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .projectOverlay {
@@ -70,7 +156,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity var(--transition-normal);
+  transition: opacity 0.3s ease;
 }
 
 .projectCard:hover .projectOverlay {
@@ -79,99 +165,237 @@
 
 .projectLinks {
   display: flex;
-  gap: var(--spacing-md);
+  gap: 20px;
 }
 
 .projectLinks a {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: var(--accent-primary);
-  color: var(--text-primary);
-  border-radius: 50%;
+  color: white;
   font-size: 1.2rem;
-  transition: all var(--transition-fast);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  transform: scale(0.8);
+}
+
+.projectCard:hover .projectLinks a {
+  transform: scale(1);
 }
 
 .projectLinks a:hover {
-  background: var(--accent-secondary);
+  background: linear-gradient(135deg, #e55a2b, #e8851a);
   transform: scale(1.1);
 }
 
 .projectContent {
-  padding: var(--spacing-xl);
+  padding: 25px;
 }
 
 .projectTitle {
-  font-size: var(--font-size-2xl);
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 var(--spacing-md);
-  text-align: left;
+  margin-bottom: 15px;
+  color: #ffffff;
+  line-height: 1.3;
 }
 
 .projectDescription {
-  font-size: var(--font-size-lg);
-  color: var(--text-secondary);
+  color: #b0b0b0;
   line-height: 1.6;
-  margin: 0 0 var(--spacing-lg);
-  text-align: left;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
 }
 
 .projectTags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  justify-content: flex-start;
+  gap: 8px;
 }
 
 .projectTag {
-  background-color: rgba(255, 107, 53, 0.1);
-  border: 1px solid var(--border-primary);
-  color: var(--accent-primary);
+  background: rgba(255, 107, 53, 0.2);
+  color: #ff6b35;
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  transition: all var(--transition-fast);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  transition: all 0.3s ease;
 }
 
 .projectTag:hover {
-  background-color: var(--accent-primary);
-  color: var(--text-primary);
+  background: rgba(255, 107, 53, 0.3);
+  border-color: rgba(255, 107, 53, 0.5);
   transform: translateY(-2px);
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
   .portfolioSection {
-    padding: var(--spacing-2xl) var(--spacing-md);
+    padding: 60px 0;
   }
 
-  .projectsGrid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+  .portfolioSection h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .projectsContainer {
+    padding: 0 15px;
+  }
+
+  .scrollButton {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  .scrollLeft {
+    left: 5px;
+  }
+
+  .scrollRight {
+    right: 5px;
+  }
+
+  .projectsScroll {
+    gap: 20px;
+    padding: 15px 0;
+    margin: 0 50px; /* Adjust margin for smaller buttons */
   }
 
   .projectCard {
-    max-width: 100%;
-  }
-
-  .projectImage {
-    height: 200px;
+    min-width: 320px;
+    max-width: 320px;
   }
 
   .projectContent {
-    padding: var(--spacing-lg);
+    padding: 20px;
   }
 
   .projectTitle {
-    font-size: var(--font-size-xl);
+    font-size: 1.3rem;
   }
 
   .projectDescription {
-    font-size: var(--font-size-base);
+    font-size: 0.9rem;
   }
+
+  .scrollIndicator {
+    margin-top: 30px;
+  }
+
+  .indicatorText {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolioSection h2 {
+    font-size: 2rem;
+  }
+
+  .scrollButton {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .projectsScroll {
+    margin: 0 45px;
+  }
+
+  .projectCard {
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  .projectContent {
+    padding: 15px;
+  }
+
+  .scrollIndicator {
+    margin-top: 25px;
+  }
+
+  .indicatorText {
+    font-size: 0.8rem;
+  }
+
+  .indicatorDots {
+    gap: 6px;
+  }
+
+  .indicatorDot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Hide navigation buttons on very small screens */
+@media (max-width: 360px) {
+  .scrollButton {
+    display: none;
+  }
+
+  .projectsScroll {
+    margin: 0;
+  }
+}
+
+/* Smooth scrolling for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .projectsScroll {
+    scroll-snap-type: x mandatory;
+  }
+
+  .projectCard {
+    scroll-snap-align: start;
+  }
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+  margin-top: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.indicatorText {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.indicatorDots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.indicatorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.indicatorDot:hover {
+  background: rgba(255, 107, 53, 0.5);
+  transform: scale(1.2);
+}
+
+/* Active dot styling */
+.indicatorDot.active {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  transform: scale(1.2);
 }
