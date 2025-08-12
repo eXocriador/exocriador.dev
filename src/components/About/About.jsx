@@ -1,5 +1,6 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import { FaUserCheck, FaCode, FaTachometerAlt } from "react-icons/fa";
 import styles from "./About.module.css";
 
 const techStack = {
@@ -15,6 +16,12 @@ const techStack = {
   "Backend & DB": ["Node.js", "Express.js", "MongoDB", "SQL"],
   Tooling: ["Git", "GitHub", "Vite"]
 };
+
+const principles = [
+  { icon: <FaUserCheck />, text: "User-Centric Design" },
+  { icon: <FaCode />, text: "Clean & Maintainable Code" },
+  { icon: <FaTachometerAlt />, text: "Performance First" }
+];
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -58,6 +65,18 @@ const About = () => {
             {/* Placeholder for high-quality personal photo */}
             <div className={styles.photoFrame}>
               <div className={styles.photoContent}></div>
+            </div>
+          </div>
+
+          <div className={styles.principlesContainer}>
+            <h3>My Principles</h3>
+            <div className={styles.principlesList}>
+              {principles.map((principle, index) => (
+                <div key={index} className={styles.principleItem}>
+                  <div className={styles.principleIcon}>{principle.icon}</div>
+                  <span className={styles.principleText}>{principle.text}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
