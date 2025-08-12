@@ -65,7 +65,7 @@ echo ""
 # Success Message
 echo -e "${GREEN}"
 echo "🎉 SUCCESS! 🎉"
-echo "All git operations completed!"
+echo "All git operations completed successfully!"
 echo -e "${NC}"
 
 echo -e "${CYAN}✨ Your code is now live on GitHub! ✨${NC}"
