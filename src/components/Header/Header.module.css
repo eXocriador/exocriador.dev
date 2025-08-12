@@ -38,11 +38,14 @@
   font-weight: 500;
   transition: all var(--transition-fast);
   position: relative;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
 }
 
 .navLink:hover {
   color: var(--accent-color);
   opacity: 1;
+  background: rgba(255, 107, 53, 0.1);
 }
 
 .navLink::after {
@@ -65,7 +68,8 @@
   border-radius: 50px;
   padding: 12px 24px;
   color: var(--text-primary);
-  background: linear-gradient(var(--primary-color), var(--primary-color)) padding-box,
+  background: linear-gradient(var(--primary-color), var(--primary-color))
+      padding-box,
     linear-gradient(135deg, var(--accent-color), var(--accent-secondary))
       border-box;
   font-weight: 600;
@@ -74,6 +78,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  min-height: var(--touch-target-size);
 }
 
 .ctaButton::before {
@@ -114,6 +119,8 @@
   cursor: pointer;
   padding: 0;
   z-index: 101;
+  min-height: var(--touch-target-size);
+  min-width: var(--touch-target-size);
 }
 
 .hamburgerLine {
@@ -175,10 +182,17 @@
   font-size: 1.5rem;
   transition: all var(--transition-fast);
   position: relative;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  min-height: var(--touch-target-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobileNavLink:hover {
   color: var(--accent-color);
+  background: rgba(255, 107, 53, 0.1);
 }
 
 .mobileNavLink::after {
@@ -202,7 +216,8 @@
   border-radius: 50px;
   padding: 16px 32px;
   color: var(--text-primary);
-  background: linear-gradient(var(--primary-color), var(--primary-color)) padding-box,
+  background: linear-gradient(var(--primary-color), var(--primary-color))
+      padding-box,
     linear-gradient(135deg, var(--accent-color), var(--accent-secondary))
       border-box;
   font-weight: 600;
@@ -210,6 +225,7 @@
   transition: all var(--transition-normal);
   cursor: pointer;
   margin-top: 1rem;
+  min-height: var(--touch-target-size);
 }
 
 .mobileCtaButton:hover {
@@ -218,7 +234,61 @@
   box-shadow: 0 8px 25px var(--shadow-primary);
 }
 
-/* Responsive Design */
+/* Responsive Design - Comprehensive Breakpoints */
+/* Large Desktop & 4K */
+@media (min-width: 1920px) {
+  .headerContainer {
+    padding: 1.5rem 8%;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .nav {
+    gap: 3rem;
+  }
+
+  .navLink {
+    font-size: 1.1rem;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .ctaButton {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Standard Desktop */
+@media (max-width: 1440px) {
+  .headerContainer {
+    padding: 1rem 4%;
+  }
+}
+
+/* Small Desktop & Large Tablets */
+@media (max-width: 1024px) {
+  .headerContainer {
+    padding: 1rem 3%;
+  }
+
+  .nav {
+    gap: 1.5rem;
+  }
+
+  .navLink {
+    font-size: 0.95rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .ctaButton {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
   .headerContainer {
     padding: 1rem 4%;
@@ -241,6 +311,32 @@
   }
 }
 
+/* Large Mobile */
+@media (max-width: 600px) {
+  .headerContainer {
+    padding: 0.8rem 3%;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .mobileMenuButton {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mobileNav {
+    gap: 1.5rem;
+  }
+
+  .mobileNavLink {
+    font-size: 1.4rem;
+    padding: var(--spacing-md);
+  }
+}
+
+/* Mobile */
 @media (max-width: 480px) {
   .headerContainer {
     padding: 0.8rem 3%;
@@ -261,6 +357,7 @@
 
   .mobileNavLink {
     font-size: 1.3rem;
+    padding: var(--spacing-md);
   }
 
   .mobileCtaButton {
@@ -269,6 +366,7 @@
   }
 }
 
+/* Small Mobile */
 @media (max-width: 360px) {
   .headerContainer {
     padding: 0.7rem 2%;
@@ -284,5 +382,65 @@
 
   .mobileNavLink {
     font-size: 1.2rem;
+    padding: var(--spacing-sm);
+  }
+
+  .mobileCtaButton {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+  .headerContainer {
+    padding: 0.5rem 3%;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .mobileMenuButton {
+    width: 26px;
+    height: 26px;
+  }
+
+  .mobileNav {
+    gap: 1rem;
+  }
+
+  .mobileNavLink {
+    font-size: 1.1rem;
+    padding: var(--spacing-sm);
+  }
+
+  .mobileCtaButton {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) and (pointer: coarse) {
+  .navLink,
+  .mobileNavLink {
+    padding: var(--spacing-md);
+    min-height: var(--touch-target-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ctaButton,
+  .mobileCtaButton {
+    min-height: var(--touch-target-size);
+    min-width: var(--touch-target-size);
+  }
+
+  .mobileMenuButton {
+    min-height: var(--touch-target-size);
+    min-width: var(--touch-target-size);
   }
 }

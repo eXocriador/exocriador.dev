@@ -192,14 +192,101 @@
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  min-height: var(--touch-target-size);
 }
 
 .actionLink:hover {
   color: var(--accent-secondary);
   transform: translateX(4px);
+  background: rgba(255, 107, 53, 0.1);
 }
 
-/* Responsive */
+/* Responsive Design - Comprehensive Breakpoints */
+/* Large Desktop & 4K Screens */
+@media (min-width: 1920px) {
+  .servicesSection {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .servicesSection h2 {
+    font-size: var(--font-size-5xl);
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .cardsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: var(--spacing-2xl);
+  }
+
+  .serviceCard {
+    padding: var(--spacing-3xl);
+  }
+
+  .serviceIcon {
+    font-size: 3.5rem;
+    height: 100px;
+    width: 100px;
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-3xl);
+  }
+
+  .serviceDesc {
+    font-size: var(--font-size-xl);
+  }
+
+  .actionLink {
+    font-size: var(--font-size-2xl);
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+}
+
+/* Standard Desktop */
+@media (max-width: 1440px) {
+  .cardsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+/* Small Desktop & Large Tablets */
+@media (max-width: 1024px) {
+  .servicesSection {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .servicesSection h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cardsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .serviceCard {
+    padding: var(--spacing-xl);
+  }
+
+  .serviceIcon {
+    font-size: 2.8rem;
+    height: 70px;
+    width: 70px;
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .serviceDesc {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
   .servicesSection {
     padding: var(--spacing-2xl) 0;
@@ -222,5 +309,250 @@
 
   .benefitsList li {
     font-size: var(--font-size-sm);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .serviceDesc {
+    font-size: var(--font-size-sm);
+  }
+
+  .actionLink {
+    font-size: var(--font-size-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}
+
+/* Large Mobile */
+@media (max-width: 600px) {
+  .servicesSection {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .servicesSection h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .cardsContainer {
+    gap: var(--spacing-md);
+  }
+
+  .serviceCard {
+    padding: var(--spacing-lg);
+  }
+
+  .serviceIcon {
+    font-size: 2.2rem;
+    height: 55px;
+    width: 55px;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .serviceDesc {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .benefitsList {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .benefitsList li {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+    padding-left: var(--spacing-md);
+  }
+
+  .actionLink {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-sm);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .servicesSection {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .servicesSection h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cardsContainer {
+    gap: var(--spacing-md);
+  }
+
+  .serviceCard {
+    padding: var(--spacing-md);
+  }
+
+  .serviceIcon {
+    font-size: 2rem;
+    height: 50px;
+    width: 50px;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .serviceDesc {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .benefitsList {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .benefitsList li {
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
+  }
+
+  .actionLink {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    min-height: 40px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+  .servicesSection {
+    padding: var(--spacing-md) 0;
+  }
+
+  .servicesSection h2 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cardsContainer {
+    gap: var(--spacing-sm);
+  }
+
+  .serviceCard {
+    padding: var(--spacing-sm);
+  }
+
+  .serviceIcon {
+    font-size: 1.8rem;
+    height: 45px;
+    width: 45px;
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .serviceDesc {
+    font-size: var(--font-size-xs);
+  }
+
+  .benefitsList li {
+    font-size: var(--font-size-xs);
+    padding-left: var(--spacing-sm);
+  }
+
+  .actionLink {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs);
+    min-height: 36px;
+  }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+  .servicesSection {
+    padding: var(--spacing-md) 0;
+  }
+
+  .servicesSection h2 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cardsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-sm);
+  }
+
+  .serviceCard {
+    padding: var(--spacing-sm);
+  }
+
+  .serviceIcon {
+    font-size: 1.5rem;
+    height: 40px;
+    width: 40px;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .serviceDesc {
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .benefitsList {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .benefitsList li {
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .actionLink {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs);
+  }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) and (pointer: coarse) {
+  .serviceCard:hover {
+    transform: none;
+  }
+
+  .serviceCard:active {
+    transform: translateY(-2px);
+  }
+
+  .actionLink:hover {
+    transform: none;
+  }
+
+  .actionLink:active {
+    transform: translateX(2px);
+  }
+
+  .actionLink {
+    min-height: var(--touch-target-size);
+    min-width: var(--touch-target-size);
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .serviceCard::before {
+    opacity: 0.05;
   }
 }
