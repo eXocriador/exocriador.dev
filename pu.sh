@@ -12,12 +12,10 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
-# ASCII Art Banner
+# Welcome Banner
 echo -e "${CYAN}"
-echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║                    🚀 GIT PUSH SCRIPT 🚀                    ║"
-echo "║                     by eXocriador                           ║"
-echo "╚══════════════════════════════════════════════════════════════╝"
+echo "🚀 GIT PUSH SCRIPT 🚀"
+echo "by eXocriador"
 echo -e "${NC}"
 
 # Check if commit message is provided
@@ -64,12 +62,10 @@ else
 fi
 echo ""
 
-# Success Banner
+# Success Message
 echo -e "${GREEN}"
-echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║                    🎉 SUCCESS! 🎉                           ║"
-echo "║              All git operations completed!                  ║"
-echo "╚══════════════════════════════════════════════════════════════╝"
+echo "🎉 SUCCESS! 🎉"
+echo "All git operations completed!"
 echo -e "${NC}"
 
 echo -e "${CYAN}✨ Your code is now live on GitHub! ✨${NC}"
