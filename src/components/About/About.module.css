@@ -58,9 +58,13 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 2px solid var(--border-primary);
-  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
   box-shadow: 0 8px 32px var(--shadow-primary);
-  margin-top: 4rem;
+  margin-top: 0;
 }
 
 .photoContent {
@@ -106,7 +110,7 @@
 }
 
 .principleIcon {
-  color: var(--accent-primary);
+  color: var(--accent-color);
   font-size: 1.2em;
   min-width: 20px;
 }
@@ -131,26 +135,26 @@
 }
 
 .techCategory {
-  background-color: var(--bg-secondary);
+  background-color: var(--secondary-color);
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   transition: all var(--transition-normal);
 }
 
 .techCategory:hover {
-  border-color: var(--accent-primary);
+  border-color: var(--accent-color);
   box-shadow: 0 8px 24px var(--shadow-primary);
 }
 
 .categoryTitle {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: 600;
   margin-top: 0;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   color: var(--text-primary);
-  border-bottom: 2px solid var(--accent-primary);
-  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: var(--spacing-xs);
 }
 
 .techTagsContainer {
@@ -162,17 +166,17 @@
 .techTag {
   background-color: rgba(255, 107, 53, 0.1);
   border: 1px solid var(--border-primary);
-  color: var(--accent-primary);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  color: var(--accent-color);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   white-space: nowrap;
   transition: all var(--transition-fast);
 }
 
 .techTag:hover {
-  background-color: var(--accent-primary);
+  background-color: var(--accent-color);
   color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow-primary), 0 0 20px rgba(255, 107, 53, 0.3);
@@ -181,10 +185,10 @@
 /* Core Frontend tech tags get special styling */
 .coreTech {
   background-color: rgba(255, 107, 53, 0.15);
-  border-color: var(--accent-primary);
+  border-color: var(--accent-color);
   font-weight: 600;
-  font-size: 1rem;
-  padding: 10px 18px;
+  font-size: var(--font-size-sm);
+  padding: 8px 14px;
 }
 
 .coreTech:hover {

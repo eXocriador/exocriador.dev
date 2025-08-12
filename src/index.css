@@ -33,13 +33,13 @@
 
 :root {
   /* Color Palette - Dark Theme with Orange Accent */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #2a2a2a;
+  --primary-color: #0a0a0a;
+  --secondary-color: #1a1a1a;
+  --tertiary-color: #2a2a2a;
   --text-primary: #ffffff;
   --text-secondary: #e0e0e0;
   --text-muted: #a0a0a0;
-  --accent-primary: #ff6b35;
+  --accent-color: #ff6b35;
   --accent-secondary: #ff8c42;
   --accent-tertiary: #ffa726;
   --border-primary: rgba(255, 107, 53, 0.2);
@@ -100,7 +100,7 @@ body {
   line-height: 1.7;
   font-weight: 400;
   color: var(--text-primary);
-  background-color: var(--bg-primary);
+  background-color: var(--primary-color);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -124,7 +124,7 @@ h1 {
 
 h2 {
   font-size: var(--font-size-4xl);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   text-align: center;
   margin-bottom: var(--spacing-2xl);
@@ -141,7 +141,7 @@ h2::after {
   height: 3px;
   background: linear-gradient(
     90deg,
-    var(--accent-primary),
+    var(--accent-color),
     var(--accent-secondary)
   );
   border-radius: 2px;
@@ -162,7 +162,7 @@ p {
 
 /* Links */
 a {
-  color: var(--accent-primary);
+  color: var(--accent-color);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -198,7 +198,7 @@ button {
 .text-gradient {
   background: linear-gradient(
     135deg,
-    var(--accent-primary),
+    var(--accent-color),
     var(--accent-secondary)
   );
   -webkit-background-clip: text;
@@ -212,11 +212,11 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--secondary-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
+  background: var(--accent-color);
   border-radius: 4px;
 }
 
@@ -226,13 +226,13 @@ button {
 
 /* Selection */
 ::selection {
-  background: var(--accent-primary);
+  background: var(--accent-color);
   color: var(--text-primary);
 }
 
 /* Focus */
 :focus {
-  outline: 2px solid var(--accent-primary);
+  outline: 2px solid var(--accent-color);
   outline-offset: 2px;
 }
 

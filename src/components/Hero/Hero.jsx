@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect, Suspense, lazy } from "react";
 import { useInView } from "react-intersection-observer";
-import { TypeAnimation } from "react-type-animation";
 import { loadSlim } from "tsparticles-slim";
+import { heroContent } from "../../constants/content";
 import styles from "./Hero.module.css";
 
 // Lazy load the Particles component
@@ -135,8 +135,7 @@ const Hero = () => {
           ref={titleRef}
           className={`${styles.title} ${titleInView ? styles.animateIn : ""}`}
         >
-          Crafting Digital Experiences That{" "}
-          <span className={styles.gradientText}>Inspire</span>
+          {heroContent.title}
         </h1>
 
         <h2
@@ -145,19 +144,7 @@ const Hero = () => {
             subtitleInView ? styles.animateIn : ""
           }`}
         >
-          <TypeAnimation
-            sequence={[
-              "Creative Frontend Developer",
-              1500,
-              "React & Animation Expert",
-              1500,
-              "Turning Ideas into Reality",
-              1500
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-          />
+          {heroContent.subtitle}
         </h2>
 
         <p
@@ -166,28 +153,28 @@ const Hero = () => {
             descriptionInView ? styles.animateIn : ""
           }`}
         >
-          I transform complex ideas into elegant, user-friendly interfaces that
-          captivate and engage. Every pixel, every animation, every interaction
-          is crafted with purpose.
+          {heroContent.description}
         </p>
 
         <div className={styles.ctaRow}>
-          <button
+          <a
             ref={button1Ref}
+            href={heroContent.ctaButtons.primary.href}
             className={`${styles.ctaButton} ${
               button1InView ? styles.animateIn : ""
             }`}
           >
-            Learn More
-          </button>
-          <button
+            {heroContent.ctaButtons.primary.text}
+          </a>
+          <a
             ref={button2Ref}
+            href={heroContent.ctaButtons.secondary.href}
             className={`${styles.ctaButton} ${styles.secondaryButton} ${
               button2InView ? styles.animateIn : ""
             }`}
           >
-            See My Work
-          </button>
+            {heroContent.ctaButtons.secondary.text}
+          </a>
         </div>
       </div>
     </section>

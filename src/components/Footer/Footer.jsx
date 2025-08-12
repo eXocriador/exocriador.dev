@@ -1,39 +1,51 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaTelegram, FaEnvelope } from "react-icons/fa";
+import { footerContent } from "../../constants/content";
 import styles from "./Footer.module.css";
+
+const iconMap = {
+  FaGithub: <FaGithub />,
+  FaLinkedin: <FaLinkedin />,
+  FaTelegram: <FaTelegram />
+};
 
 const Footer = () => {
   return (
-    <footer className={styles.footerContainer}>
+    <footer className={styles.footerContainer} id="footer">
       <div className={styles.footerContent}>
-        <div className={styles.socialLinks}>
+        <div className={styles.footerHeader}>
+          <h2>{footerContent.title}</h2>
+          <p className={styles.footerSubtitle}>{footerContent.subtitle}</p>
+        </div>
+
+        <div className={styles.contactSection}>
           <a
-            href="https://github.com/eXocriador"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my GitHub profile"
+            href={`mailto:${footerContent.email}`}
+            className={styles.emailLink}
+            aria-label="Send me an email"
           >
-            <FaGithub />
-          </a>
-          <a
-            href="https://linkedin.com/in/exocriador"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my LinkedIn profile"
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            href="https://twitter.com/exocriador"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my Twitter profile"
-          >
-            <FaXTwitter />
+            <FaEnvelope />
+            <span>{footerContent.email}</span>
           </a>
         </div>
+
+        <div className={styles.socialLinks}>
+          {footerContent.socialLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit my ${social.name} profile`}
+              className={styles.socialLink}
+            >
+              {iconMap[social.icon]}
+            </a>
+          ))}
+        </div>
+
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} eXocriador. All rights reserved.
+          © 2025 eXocriador. All rights reserved.
         </p>
       </div>
     </footer>

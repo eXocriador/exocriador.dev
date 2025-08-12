@@ -1,5 +1,6 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import { servicesContent } from "../../constants/content";
 import styles from "./Services.module.css";
 
 // Custom inline SVG illustrations for each service
@@ -110,34 +111,11 @@ const ArchitectureIcon = () => (
   </svg>
 );
 
-const servicesData = [
-  {
-    icon: <DevelopmentIcon />,
-    title: "Frontend Development",
-    desc: "Fast and accessible interfaces with focus on UX and performance. I create responsive, modern web applications that work seamlessly across all devices.",
-    benefits: [
-      "WCAG Accessibility",
-      "Core Web Vitals Optimized",
-      "Responsive on all devices"
-    ]
-  },
-  {
-    icon: <AnimationsIcon />,
-    title: "Animations & Interactions",
-    desc: "Living animations, micro-interactions, and smooth transitions for modern products. Every movement is crafted to enhance user experience and engagement.",
-    benefits: [
-      "Performance Optimized",
-      "Cross-browser Compatible",
-      "Touch-friendly Interactions"
-    ]
-  },
-  {
-    icon: <ArchitectureIcon />,
-    title: "React Architecture",
-    desc: "Clean components, clear structure, and scalable solutions. I build maintainable React applications with best practices and modern patterns.",
-    benefits: ["Component Reusability", "State Management", "Testing Coverage"]
-  }
-];
+const iconMap = {
+  "Frontend Development": <DevelopmentIcon />,
+  "Animations & Interactions": <AnimationsIcon />,
+  "React Architecture": <ArchitectureIcon />
+};
 
 const ServiceCard = React.memo(({ service, index }) => {
   const [ref, inView] = useInView({
@@ -151,9 +129,9 @@ const ServiceCard = React.memo(({ service, index }) => {
       className={`${styles.serviceCard} ${inView ? styles.animateIn : ""}`}
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
-      <div className={styles.serviceIcon}>{service.icon}</div>
+      <div className={styles.serviceIcon}>{iconMap[service.title]}</div>
       <h3 className={styles.cardTitle}>{service.title}</h3>
-      <p className={styles.serviceDesc}>{service.desc}</p>
+      <p className={styles.serviceDesc}>{service.description}</p>
 
       <div className={styles.benefitsList}>
         <ul>
@@ -175,9 +153,9 @@ const ServiceCard = React.memo(({ service, index }) => {
 const Services = () => {
   return (
     <section id="services" className={styles.servicesSection}>
-      <h2>What I Offer</h2>
+      <h2>{servicesContent.title}</h2>
       <div className={styles.cardsContainer}>
-        {servicesData.map((service, index) => (
+        {servicesContent.services.map((service, index) => (
           <ServiceCard key={index} service={service} index={index} />
         ))}
       </div>
