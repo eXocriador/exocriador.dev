@@ -113,75 +113,6 @@ const projectsData = [
       github: "https://github.com/exocriador/weather-app",
       live: "https://weather.exocriador.dev"
     }
-  },
-  {
-    id: 6,
-    imgSrc:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop&crop=center",
-    title: "Recipe Finder",
-    description:
-      "Smart recipe discovery app with ingredient-based search, nutritional information, and personalized recommendations. Includes meal planning features.",
-    tags: [
-      "React",
-      "Spoonacular API",
-      "Context API",
-      "Local Storage",
-      "CSS Flexbox"
-    ],
-    challenge:
-      "Building an intelligent recipe recommendation system that helps users discover new dishes based on available ingredients and dietary preferences.",
-    solution: [
-      "Implemented fuzzy search algorithms for ingredient matching",
-      "Built a recommendation engine using user preferences and history",
-      "Created a meal planning system with drag-and-drop functionality",
-      "Designed an intuitive interface that makes cooking accessible to everyone"
-    ],
-    links: {
-      github: "https://github.com/exocriador/recipe-finder",
-      live: "https://recipes.exocriador.dev"
-    }
-  },
-  {
-    id: 7,
-    imgSrc:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center",
-    title: "Fitness Tracker",
-    description:
-      "Comprehensive fitness tracking application with workout logging, progress visualization, and goal setting. Features responsive design and data persistence.",
-    tags: ["React", "Chart.js", "IndexedDB", "Service Workers", "Responsive"],
-    challenge:
-      "Creating a fitness app that motivates users to stay consistent while providing comprehensive tracking and beautiful data visualization.",
-    solution: [
-      "Built interactive charts with Chart.js for progress visualization",
-      "Implemented IndexedDB for offline data storage and sync",
-      "Created a goal-setting system with milestone tracking",
-      "Designed motivational UI elements that encourage user engagement"
-    ],
-    links: {
-      github: "https://github.com/exocriador/fitness-tracker",
-      live: "https://fitness.exocriador.dev"
-    }
-  },
-  {
-    id: 8,
-    imgSrc:
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=250&fit=crop&crop=center",
-    title: "Chat Application",
-    description:
-      "Real-time chat application with user authentication, message encryption, and file sharing capabilities. Built with React and Socket.io.",
-    tags: ["React", "Socket.io", "JWT", "Express.js", "MongoDB"],
-    challenge:
-      "Building a secure, real-time chat system that handles multiple concurrent users while maintaining message privacy and system performance.",
-    solution: [
-      "Implemented end-to-end encryption for message security",
-      "Built a scalable WebSocket architecture with Socket.io",
-      "Created a file sharing system with progress indicators",
-      "Designed a responsive chat interface that works on all devices"
-    ],
-    links: {
-      github: "https://github.com/exocriador/chat-app",
-      live: "https://chat.exocriador.dev"
-    }
   }
 ];
 
@@ -267,13 +198,11 @@ const Portfolio = () => {
     );
   };
 
-  const nextProjectIndex = (activeIndex + 1) % projectsData.length;
-
   return (
     <section id="portfolio" className={styles.portfolioSection}>
       <h2>My Recent Work</h2>
 
-      <div className={styles.carouselContainer}>
+      <div className={styles.portfolioContainer}>
         {projectsData.map((project, index) => (
           <div
             key={project.id}
@@ -284,11 +213,9 @@ const Portfolio = () => {
             <ProjectCard project={project} />
           </div>
         ))}
-      </div>
 
-      <div className={styles.navigationControls}>
         <button
-          className={`${styles.navButton} ${styles.navLeft}`}
+          className={`${styles.navArrow} ${styles.navArrowLeft}`}
           onClick={goToPrev}
           aria-label="Previous project"
         >
@@ -296,18 +223,13 @@ const Portfolio = () => {
         </button>
 
         <button
-          className={`${styles.navButton} ${styles.navRight}`}
+          className={`${styles.navArrow} ${styles.navArrowRight}`}
           onClick={goToNext}
           aria-label="Next project"
         >
           <FaChevronRight />
         </button>
-      </div>
 
-      <div className={styles.projectIndicator}>
-        <span className={styles.currentProject}>
-          {activeIndex + 1} of {projectsData.length}
-        </span>
         <div className={styles.indicatorDots}>
           {projectsData.map((_, index) => (
             <button
@@ -320,14 +242,6 @@ const Portfolio = () => {
             />
           ))}
         </div>
-      </div>
-
-      {/* Peek element for next project */}
-      <div className={styles.peekElement}>
-        <img
-          src={projectsData[nextProjectIndex].imgSrc}
-          alt={`Preview of ${projectsData[nextProjectIndex].title}`}
-        />
       </div>
     </section>
   );

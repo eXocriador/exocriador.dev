@@ -58,6 +58,29 @@ const About = () => {
             open-source projects. I believe in continuous learning and sharing
             knowledge with the developer community.
           </p>
+
+          <div className={styles.techSection}>
+            <h2>My Tech Stack</h2>
+            <div className={styles.techCategories}>
+              {Object.entries(techStack).map(([category, technologies]) => (
+                <div key={category} className={styles.techCategory}>
+                  <h3 className={styles.categoryTitle}>{category}</h3>
+                  <div className={styles.techTagsContainer}>
+                    {technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className={`${styles.techTag} ${
+                          category === "Core Frontend" ? styles.coreTech : ""
+                        }`}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className={styles.photoColumn}>
@@ -70,38 +93,13 @@ const About = () => {
 
           <div className={styles.principlesContainer}>
             <h3>My Principles</h3>
-            <div className={styles.principlesList}>
-              {principles.map((principle, index) => (
-                <div key={index} className={styles.principleItem}>
-                  <div className={styles.principleIcon}>{principle.icon}</div>
-                  <span className={styles.principleText}>{principle.text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.techSection}>
-        <h2>My Tech Stack</h2>
-        <div className={styles.techCategories}>
-          {Object.entries(techStack).map(([category, technologies]) => (
-            <div key={category} className={styles.techCategory}>
-              <h3 className={styles.categoryTitle}>{category}</h3>
-              <div className={styles.techTagsContainer}>
-                {technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className={`${styles.techTag} ${
-                      category === "Core Frontend" ? styles.coreTech : ""
-                    }`}
-                  >
-                    {tech}
-                  </span>
-                ))}
+            {principles.map((principle, index) => (
+              <div key={index} className={styles.principleItem}>
+                <div className={styles.principleIcon}>{principle.icon}</div>
+                <span className={styles.principleText}>{principle.text}</span>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
