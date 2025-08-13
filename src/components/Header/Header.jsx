@@ -78,8 +78,8 @@ const Header = () => {
         </a>
         <a
           className={styles.navLink}
-          href="#footer"
-          data-target-id="footer"
+          href="#contact"
+          data-target-id="contact"
           aria-label="Go to contact section"
         >
           Contact
@@ -87,7 +87,13 @@ const Header = () => {
       </nav>
 
       {/* Desktop CTA Button */}
-      <button className={styles.ctaButton}>Order Project</button>
+      <button
+        className={styles.ctaButton}
+        onClick={() => scrollToSection("contact")}
+        aria-label="Go to contact section to order a project"
+      >
+        Order Project
+      </button>
 
       {/* Mobile Menu Button */}
       <button
@@ -163,15 +169,19 @@ const Header = () => {
           </a>
           <a
             className={styles.mobileNavLink}
-            href="#footer"
-            data-target-id="footer"
+            href="#contact"
+            data-target-id="contact"
             aria-label="Go to contact section"
           >
             Contact
           </a>
           <button
             className={styles.mobileCtaButton}
-            aria-label="Order a project from me"
+            onClick={() => {
+              scrollToSection("contact");
+              closeMobileMenu();
+            }}
+            aria-label="Go to contact section to order a project"
           >
             Order Project
           </button>

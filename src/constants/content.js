@@ -50,11 +50,10 @@ export const servicesContent = {
 };
 
 export const heroContent = {
-  title:
-    "Building Fast, Intuitive Web Applications that Solve Business Problems",
-  subtitle: "Full-Stack Development | UI/UX Design",
+  title: "Forging Ideas, Crafting Solutions",
+  subtitle: "Frontend Developer & UI/UX Designer",
   description:
-    "I transform complex ideas into elegant, user-friendly interfaces that captivate and engage. Every pixel, every animation, every interaction is crafted with purpose."
+    "Building fast, intuitive web applications that solve business problems"
 };
 
 export const footerContent = {

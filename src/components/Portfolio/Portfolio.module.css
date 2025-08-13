@@ -21,11 +21,11 @@
   border: 1px solid var(--border-primary);
   display: flex;
   flex-direction: column;
-  /* Покращена початкова анімація */
+  /* Початковий стан для fade-in анімації */
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: calc(var(--card-index, 0) * 0.1s);
+  transition: opacity 0.8s ease, transform 0.8s ease,
+    box-shadow var(--transition-normal), border-color var(--transition-normal);
 }
 
 .projectCard:hover {
@@ -34,10 +34,11 @@
   border-color: var(--accent-color);
 }
 
-/* Видаляємо стару анімацію */
-/* .projectCard.animateIn {
-  animation: slideInUp 0.6s ease-out forwards;
-} */
+/* Анімація при вході в viewport */
+.projectCard.animateIn {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .projectImage {
   position: relative;
@@ -134,6 +135,17 @@
   font-size: var(--font-size-sm);
   font-weight: 500;
   border: 1px solid var(--border-primary);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+/* Hover ефект для бейджів при наведенні на картку */
+.projectCard:hover .projectTag {
+  background: var(--accent-color);
+  color: var(--text-primary);
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 12px var(--accent-color);
+  transform: translateY(-1px);
 }
 
 .projectActions {
@@ -306,6 +318,7 @@
   .projectTag {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: var(--font-size-sm);
+    transition: all var(--transition-normal);
   }
 }
 
@@ -386,6 +399,7 @@
   .projectTag {
     padding: 4px 8px;
     font-size: var(--font-size-sm);
+    transition: all var(--transition-normal);
   }
 
   .actionButton {
@@ -435,6 +449,10 @@
     margin-bottom: var(--spacing-sm);
   }
 
+  .projectTag {
+    transition: all var(--transition-normal);
+  }
+
   .projectActions {
     gap: var(--spacing-sm);
   }
@@ -471,6 +489,15 @@
     transform: translateY(-1px);
   }
 
+  /* Вимкнути hover-ефект для бейджів на touch-пристроях */
+  .projectCard:hover .projectTag {
+    background: var(--tertiary-color);
+    color: var(--accent-color);
+    border-color: var(--border-primary);
+    box-shadow: none;
+    transform: none;
+  }
+
   .projectLink,
   .actionButton {
     min-height: var(--touch-target-size);
@@ -483,29 +510,5 @@
   .projectImage img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-  }
-}
-
-/* Покращена анімація без блимання */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Додаткова анімація для плавного появи */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

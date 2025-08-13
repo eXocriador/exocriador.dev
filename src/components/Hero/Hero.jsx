@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect, Suspense, lazy } from "react";
 import { useInView } from "react-intersection-observer";
 import { loadSlim } from "tsparticles-slim";
-import { heroContent } from "../../constants/content";
+import { scrollToSection } from "../../utils/scrollUtils";
 import styles from "./Hero.module.css";
 
 // Lazy load the Particles component
@@ -36,10 +36,18 @@ const Hero = () => {
     triggerOnce: true,
     delay: 200
   });
-  const [descriptionRef, descriptionInView] = useInView({
+  const [ctaRef, ctaInView] = useInView({
     triggerOnce: true,
     delay: 400
   });
+
+  const handleViewWork = () => {
+    scrollToSection("portfolio");
+  };
+
+  const handleGetInTouch = () => {
+    scrollToSection("contact");
+  };
 
   return (
     <section
@@ -133,7 +141,7 @@ const Hero = () => {
           id="hero-title"
           className={`${styles.title} ${titleInView ? styles.animateIn : ""}`}
         >
-          {heroContent.title}
+          Forging Ideas, Crafting Solutions
         </h1>
 
         <h2
@@ -142,17 +150,31 @@ const Hero = () => {
             subtitleInView ? styles.animateIn : ""
           }`}
         >
-          {heroContent.subtitle}
+          Frontend Developer & UI/UX Designer
         </h2>
 
-        <p
-          ref={descriptionRef}
-          className={`${styles.description} ${
-            descriptionInView ? styles.animateIn : ""
+        <div
+          ref={ctaRef}
+          className={`${styles.ctaContainer} ${
+            ctaInView ? styles.animateIn : ""
           }`}
         >
-          {heroContent.description}
-        </p>
+          <button
+            onClick={handleViewWork}
+            className={styles.ctaPrimary}
+            aria-label="View my portfolio projects"
+          >
+            View My Work
+          </button>
+
+          <button
+            onClick={handleGetInTouch}
+            className={styles.ctaSecondary}
+            aria-label="Get in touch for collaboration"
+          >
+            Get in Touch
+          </button>
+        </div>
       </div>
     </section>
   );
