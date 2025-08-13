@@ -6,6 +6,7 @@ import Services from "./components/Services/Services";
 import Portfolio from "./components/Portfolio/Portfolio";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import styles from "./App.module.css";
 
 function App() {
   return (
@@ -15,8 +16,11 @@ function App() {
       <About />
       <Services />
       <Portfolio />
-      <Contact />
-      <Footer />
+      {/* Фінальний екран з Contact та Footer */}
+      <section id="contact" className={styles.finalScreenWrapper}>
+        <Contact />
+        <Footer />
+      </section>
     </>
   );
 }

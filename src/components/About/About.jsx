@@ -39,17 +39,47 @@ const About = () => {
       aria-label="About me and my technical skills"
     >
       <div className={styles.aboutContainer}>
-        {/* Main Content Column */}
-        <div className={styles.mainContent}>
+        {/* Left Column - Sticky */}
+        <div className={styles.leftColumn}>
+          {/* Profile Image */}
+          <div className={styles.aboutImage}>
+            <div className={styles.photoFrame}>
+              <div className={styles.photoContent}></div>
+            </div>
+          </div>
+
+          {/* Principles Section */}
+          <div className={styles.principlesSection}>
+            <h3 className={styles.principlesTitle}>My Principles</h3>
+            <div className={styles.principlesGrid}>
+              {aboutContent.principles.map((principle, index) => (
+                <div key={index} className={styles.principleCard}>
+                  <div className={styles.principleIcon} aria-hidden="true">
+                    {iconMap[principle.icon]}
+                  </div>
+                  <h4 className={styles.principleTitle}>{principle.text}</h4>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column - Scrollable Content */}
+        <div className={styles.rightColumn}>
           {/* About Me Text */}
           <div className={styles.aboutText}>
             <h2 id="about-title">{aboutContent.title}</h2>
-            {aboutContent.description.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+            <p>
+              A passionate and detail-oriented developer from Ukraine, I
+              specialize in building intuitive and high-performing web
+              applications. My journey in tech is driven by a constant desire to
+              learn, innovate, and transform complex challenges into elegant,
+              user-friendly solutions. I believe in the power of clean code and
+              thoughtful design to create meaningful digital experiences.
+            </p>
           </div>
 
-          {/* Integrated Tech Stack */}
+          {/* Tech Stack Section */}
           <div className={styles.techSection}>
             <h3 className={styles.techSectionTitle}>My Core Instruments</h3>
             <p className={styles.techSectionSubtitle}>
@@ -75,28 +105,6 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Principles Section */}
-          <div className={styles.principlesSection}>
-            <h3 className={styles.principlesTitle}>My Principles</h3>
-            <div className={styles.principlesGrid}>
-              {aboutContent.principles.map((principle, index) => (
-                <div key={index} className={styles.principleCard}>
-                  <div className={styles.principleIcon} aria-hidden="true">
-                    {iconMap[principle.icon]}
-                  </div>
-                  <h4 className={styles.principleTitle}>{principle.text}</h4>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Visual Element - Photo or Illustration */}
-        <div className={styles.visualElement}>
-          <div className={styles.photoFrame}>
-            <div className={styles.photoContent}></div>
           </div>
         </div>
       </div>

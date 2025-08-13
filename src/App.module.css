@@ -1,0 +1,8 @@
+.finalScreenWrapper {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column; /* Stack Contact and Footer vertically */
+  overflow-y: auto; /* Додаємо скрол для довгого контенту */
+}

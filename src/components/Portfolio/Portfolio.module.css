@@ -139,13 +139,20 @@
   position: relative;
 }
 
-/* Hover ефект для бейджів при наведенні на картку */
+/* Hover ефект для бейджів при наведенні на картку - тонкий ефект */
 .projectCard:hover .projectTag {
+  opacity: 0.85;
+  transition: opacity var(--transition-normal);
+}
+
+/* Hover ефект для конкретного бейджа - яскравий ефект */
+.projectTag:hover {
   background: var(--accent-color);
   color: var(--text-primary);
   border-color: var(--accent-secondary);
   box-shadow: 0 0 12px var(--accent-color);
   transform: translateY(-1px);
+  opacity: 1;
 }
 
 .projectActions {
@@ -451,6 +458,7 @@
 
   .projectTag {
     transition: all var(--transition-normal);
+    opacity: 1;
   }
 
   .projectActions {
@@ -491,11 +499,21 @@
 
   /* Вимкнути hover-ефект для бейджів на touch-пристроях */
   .projectCard:hover .projectTag {
+    opacity: 1;
     background: var(--tertiary-color);
     color: var(--accent-color);
     border-color: var(--border-primary);
     box-shadow: none;
     transform: none;
+  }
+
+  .projectTag:hover {
+    background: var(--tertiary-color);
+    color: var(--accent-color);
+    border-color: var(--border-primary);
+    box-shadow: none;
+    transform: none;
+    opacity: 1;
   }
 
   .projectLink,

@@ -4,12 +4,19 @@
   margin: 0 auto;
   padding: var(--spacing-3xl) 0;
   background: var(--primary-color);
+  display: flex;
+  align-items: flex-start; /* Змінюємо на flex-start для кращого вирівнювання */
+  padding-top: 120px; /* Додаємо відступ зверху */
+  /* Видаляємо flex-grow: 1 - тепер секція не розтягується */
+  min-height: fit-content; /* Висота за контентом */
 }
 
 .contactContainer {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
   /* Початковий стан для fade-in анімації */
   opacity: 0;
   transform: translateY(20px);
@@ -21,8 +28,15 @@
   transform: translateY(0);
 }
 
+/* Left Column - Sales Pitch */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
 .contactSection h2 {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-4xl);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-lg);
@@ -34,16 +48,78 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.2;
+  margin-top: 0;
 }
 
 .contactSubtitle {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: var(--spacing-2xl);
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Persuasive Content Styles */
+.persuasiveContent {
+  margin-bottom: 0;
+}
+
+.projectDescription {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+  margin-top: 0;
+}
+
+.availabilityInfo {
+  background: rgba(var(--accent-color-rgb, 0, 123, 255), 0.05);
+  border: 1px solid rgba(var(--accent-color-rgb, 0, 123, 255), 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-top: 0;
+}
+
+.availabilityText {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.availabilityText strong {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.contactInfo {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.contactNote {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.contactNote a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-normal);
+}
+
+.contactNote a:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+/* Right Column - Contact Form */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
 }
 
 .contactForm {
@@ -52,12 +128,17 @@
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-primary);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 0;
+  height: fit-content;
 }
 
 .formGroup {
   margin-bottom: var(--spacing-lg);
   text-align: left;
+}
+
+.formGroup:last-of-type {
+  margin-bottom: var(--spacing-xl);
 }
 
 .formLabel {
@@ -110,6 +191,7 @@
   cursor: pointer;
   transition: all var(--transition-normal);
   min-height: var(--touch-target-size);
+  margin-top: var(--spacing-md);
 }
 
 .submitButton:hover:not(:disabled) {
@@ -136,6 +218,7 @@
   border: 1px solid rgba(34, 197, 94, 0.2);
   margin-top: var(--spacing-lg);
   font-weight: 500;
+  text-align: center;
 }
 
 .errorMessage {
@@ -146,38 +229,68 @@
   border: 1px solid rgba(239, 68, 68, 0.2);
   margin-top: var(--spacing-lg);
   font-weight: 500;
-}
-
-.contactInfo {
-  margin-top: var(--spacing-xl);
-}
-
-.contactNote {
-  color: var(--text-secondary);
-  font-size: var(--font-size-base);
-  line-height: 1.6;
-}
-
-.contactNote a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color var(--transition-normal);
-}
-
-.contactNote a:hover {
-  color: var(--accent-secondary);
-  text-decoration: underline;
+  text-align: center;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .contactSection {
     padding: var(--spacing-2xl) 0;
+    padding-top: 100px; /* Зменшуємо відступ зверху для планшетів */
+    min-height: fit-content; /* Висота за контентом */
   }
 
   .contactContainer {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
     margin: 0 var(--spacing-md);
+  }
+
+  .leftColumn {
+    text-align: center;
+    order: 2;
+  }
+
+  .rightColumn {
+    order: 1;
+  }
+
+  .contactSection h2 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .contactSubtitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .projectDescription {
+    font-size: var(--font-size-base);
+  }
+
+  .contactForm {
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .contactSection {
+    padding: var(--spacing-xl) 0;
+    padding-top: 80px; /* Зменшуємо відступ зверху для мобільних */
+  }
+
+  .contactContainer {
+    margin: 0 var(--spacing-sm);
+    gap: var(--spacing-xl);
+  }
+
+  .leftColumn {
+    text-align: center;
+    order: 2;
+  }
+
+  .rightColumn {
+    order: 1;
   }
 
   .contactSection h2 {
@@ -188,35 +301,19 @@
     font-size: var(--font-size-base);
   }
 
-  .contactForm {
-    padding: var(--spacing-xl);
-  }
-}
-
-@media (max-width: 480px) {
-  .contactSection {
-    padding: var(--spacing-xl) 0;
-  }
-
-  .contactContainer {
-    margin: 0 var(--spacing-sm);
-  }
-
-  .contactSection h2 {
-    font-size: var(--font-size-xl);
-  }
-
-  .contactSubtitle {
+  .projectDescription {
     font-size: var(--font-size-sm);
   }
 
   .contactForm {
     padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
   }
 
   .submitButton {
     padding: var(--spacing-md) var(--spacing-lg);
     font-size: var(--font-size-base);
+    margin-top: var(--spacing-sm);
   }
 }
 
