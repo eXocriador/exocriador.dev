@@ -11,7 +11,12 @@ const iconMap = {
 
 const Footer = () => {
   return (
-    <footer className={styles.footerContainer} id="footer">
+    <footer
+      className={styles.footerContainer}
+      id="footer"
+      role="contentinfo"
+      aria-label="Footer with contact information and social media links"
+    >
       <div className={styles.footerContent}>
         <div className={styles.footerHeader}>
           <h2>{footerContent.title}</h2>
@@ -19,17 +24,24 @@ const Footer = () => {
         </div>
 
         <div className={styles.contactSection}>
+          <h3>Contact Information</h3>
           <a
             href={`mailto:${footerContent.email}`}
             className={styles.emailLink}
-            aria-label="Send me an email"
+            aria-label={`Send me an email to ${footerContent.email}`}
           >
-            <FaEnvelope />
+            <FaEnvelope aria-hidden="true" />
             <span>{footerContent.email}</span>
           </a>
         </div>
 
-        <div className={styles.socialLinks}>
+        <div
+          className={styles.socialLinks}
+          aria-labelledby="social-links-title"
+        >
+          <h3 id="social-links-title" className="sr-only">
+            Social Media Links
+          </h3>
           {footerContent.socialLinks.map((social) => (
             <a
               key={social.name}
@@ -40,6 +52,7 @@ const Footer = () => {
               className={styles.socialLink}
             >
               {iconMap[social.icon]}
+              <span className="sr-only">{social.name}</span>
             </a>
           ))}
         </div>

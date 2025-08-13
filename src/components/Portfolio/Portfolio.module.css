@@ -21,6 +21,11 @@
   border: 1px solid var(--border-primary);
   display: flex;
   flex-direction: column;
+  /* Покращена початкова анімація */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: calc(var(--card-index, 0) * 0.1s);
 }
 
 .projectCard:hover {
@@ -29,9 +34,10 @@
   border-color: var(--accent-color);
 }
 
-.projectCard.animateIn {
+/* Видаляємо стару анімацію */
+/* .projectCard.animateIn {
   animation: slideInUp 0.6s ease-out forwards;
-}
+} */
 
 .projectImage {
   position: relative;
@@ -480,7 +486,19 @@
   }
 }
 
-/* Animation */
+/* Покращена анімація без блимання */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Додаткова анімація для плавного появи */
 @keyframes slideInUp {
   from {
     opacity: 0;

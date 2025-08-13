@@ -35,20 +35,25 @@ const About = () => {
       ref={ref}
       id="about"
       className={`${styles.aboutSection} ${inView ? styles.animateIn : ""}`}
+      aria-labelledby="about-title"
+      aria-label="About me and my technical skills"
     >
       <div className={styles.aboutContainer}>
         <div className={styles.textColumn}>
-          <h2>{aboutContent.title}</h2>
+          <h2 id="about-title">{aboutContent.title}</h2>
           {aboutContent.description.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
 
-          <div className={styles.techSection}>
-            <h2>{aboutContent.techStackTitle}</h2>
+          <div
+            className={styles.techSection}
+            aria-labelledby="tech-stack-title"
+          >
+            <h3 id="tech-stack-title">{aboutContent.techStackTitle}</h3>
             <div className={styles.techCategories}>
               {Object.entries(techStack).map(([category, technologies]) => (
                 <div key={category} className={styles.techCategory}>
-                  <h3 className={styles.categoryTitle}>{category}</h3>
+                  <h4 className={styles.categoryTitle}>{category}</h4>
                   <div className={styles.techTagsContainer}>
                     {technologies.map((tech, index) => (
                       <span
@@ -75,11 +80,14 @@ const About = () => {
             </div>
           </div>
 
-          <div className={styles.principlesContainer}>
-            <h3>My Principles</h3>
+          <div
+            className={styles.principlesContainer}
+            aria-labelledby="principles-title"
+          >
+            <h3 id="principles-title">My Principles</h3>
             {aboutContent.principles.map((principle, index) => (
               <div key={index} className={styles.principleItem}>
-                <div className={styles.principleIcon}>
+                <div className={styles.principleIcon} aria-hidden="true">
                   {iconMap[principle.icon]}
                 </div>
                 <span className={styles.principleText}>{principle.text}</span>

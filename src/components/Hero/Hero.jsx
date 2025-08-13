@@ -40,19 +40,16 @@ const Hero = () => {
     triggerOnce: true,
     delay: 400
   });
-  const [button1Ref, button1InView] = useInView({
-    triggerOnce: true,
-    delay: 600
-  });
-  const [button2Ref, button2InView] = useInView({
-    triggerOnce: true,
-    delay: 800
-  });
 
   return (
-    <section className={styles.heroSection} id="hero">
+    <section
+      className={styles.heroSection}
+      id="hero"
+      aria-labelledby="hero-title"
+      aria-label="Hero section introducing myself as a frontend developer"
+    >
       {!isMobile && (
-        <Suspense fallback={<div />}>
+        <Suspense fallback={<div aria-label="Loading particles animation" />}>
           <Particles
             id="tsparticles"
             init={particlesInit}
@@ -63,7 +60,7 @@ const Hero = () => {
                   value: "transparent"
                 }
               },
-              fpsLimit: 120,
+              fpsLimit: 100,
               interactivity: {
                 events: {
                   onClick: {
@@ -112,7 +109,7 @@ const Hero = () => {
                     enable: true,
                     area: 800
                   },
-                  value: 50
+                  value: 40
                 },
                 opacity: {
                   value: 0.5
@@ -133,6 +130,7 @@ const Hero = () => {
       <div className={styles.heroContent}>
         <h1
           ref={titleRef}
+          id="hero-title"
           className={`${styles.title} ${titleInView ? styles.animateIn : ""}`}
         >
           {heroContent.title}
@@ -155,27 +153,6 @@ const Hero = () => {
         >
           {heroContent.description}
         </p>
-
-        <div className={styles.ctaRow}>
-          <a
-            ref={button1Ref}
-            href={heroContent.ctaButtons.primary.href}
-            className={`${styles.ctaButton} ${
-              button1InView ? styles.animateIn : ""
-            }`}
-          >
-            {heroContent.ctaButtons.primary.text}
-          </a>
-          <a
-            ref={button2Ref}
-            href={heroContent.ctaButtons.secondary.href}
-            className={`${styles.ctaButton} ${styles.secondaryButton} ${
-              button2InView ? styles.animateIn : ""
-            }`}
-          >
-            {heroContent.ctaButtons.secondary.text}
-          </a>
-        </div>
       </div>
     </section>
   );

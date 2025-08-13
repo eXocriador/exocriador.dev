@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styles from "./Header.module.css";
+import { scrollToSection } from "../../utils/scrollUtils";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -9,15 +10,9 @@ const Header = () => {
       e.preventDefault();
       const targetId = e.target.getAttribute("data-target-id");
       if (targetId) {
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-          // Close mobile menu after navigation
-          setIsMobileMenuOpen(false);
-        }
+        scrollToSection(targetId);
+        // Close mobile menu after navigation
+        setIsMobileMenuOpen(false);
       }
     }
   }, []);
@@ -31,23 +26,45 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.headerContainer}>
+    <header
+      className={styles.headerContainer}
+      role="banner"
+      aria-label="Main site header with navigation menu"
+    >
       <div className={styles.logo}>
-        eXocriador<span className={styles.logoAccent}>.dev</span>
+        <a href="#hero" aria-label="Go to home page">
+          eXocriador<span className={styles.logoAccent}>.dev</span>
+        </a>
       </div>
 
       {/* Desktop Navigation */}
-      <nav className={styles.nav} onClick={handleNavClick}>
-        <a className={styles.navLink} href="#hero" data-target-id="hero">
+      <nav
+        className={styles.nav}
+        onClick={handleNavClick}
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <a
+          className={styles.navLink}
+          href="#hero"
+          data-target-id="hero"
+          aria-label="Go to home section"
+        >
           Home
         </a>
-        <a className={styles.navLink} href="#about" data-target-id="about">
+        <a
+          className={styles.navLink}
+          href="#about"
+          data-target-id="about"
+          aria-label="Go to about section"
+        >
           About
         </a>
         <a
           className={styles.navLink}
           href="#services"
           data-target-id="services"
+          aria-label="Go to services section"
         >
           Services
         </a>
@@ -55,10 +72,16 @@ const Header = () => {
           className={styles.navLink}
           href="#portfolio"
           data-target-id="portfolio"
+          aria-label="Go to portfolio section"
         >
           Portfolio
         </a>
-        <a className={styles.navLink} href="#contact" data-target-id="contact">
+        <a
+          className={styles.navLink}
+          href="#footer"
+          data-target-id="footer"
+          aria-label="Go to contact section"
+        >
           Contact
         </a>
       </nav>
@@ -71,6 +94,8 @@ const Header = () => {
         className={styles.mobileMenuButton}
         onClick={toggleMobileMenu}
         aria-label="Toggle mobile menu"
+        aria-expanded={isMobileMenuOpen}
+        aria-controls="mobile-menu"
       >
         <span
           className={`${styles.hamburgerLine} ${
@@ -91,16 +116,24 @@ const Header = () => {
 
       {/* Mobile Navigation Overlay */}
       <div
+        id="mobile-menu"
         className={`${styles.mobileMenuOverlay} ${
           isMobileMenuOpen ? styles.active : ""
         }`}
         onClick={closeMobileMenu}
+        aria-hidden={!isMobileMenuOpen}
       >
-        <nav className={styles.mobileNav} onClick={handleNavClick}>
+        <nav
+          className={styles.mobileNav}
+          onClick={handleNavClick}
+          role="navigation"
+          aria-label="Mobile navigation"
+        >
           <a
             className={styles.mobileNavLink}
             href="#hero"
             data-target-id="hero"
+            aria-label="Go to home section"
           >
             Home
           </a>
@@ -108,6 +141,7 @@ const Header = () => {
             className={styles.mobileNavLink}
             href="#about"
             data-target-id="about"
+            aria-label="Go to about section"
           >
             About
           </a>
@@ -115,6 +149,7 @@ const Header = () => {
             className={styles.mobileNavLink}
             href="#services"
             data-target-id="services"
+            aria-label="Go to services section"
           >
             Services
           </a>
@@ -122,17 +157,24 @@ const Header = () => {
             className={styles.mobileNavLink}
             href="#portfolio"
             data-target-id="portfolio"
+            aria-label="Go to portfolio section"
           >
             Portfolio
           </a>
           <a
             className={styles.mobileNavLink}
-            href="#contact"
-            data-target-id="contact"
+            href="#footer"
+            data-target-id="footer"
+            aria-label="Go to contact section"
           >
             Contact
           </a>
-          <button className={styles.mobileCtaButton}>Order Project</button>
+          <button
+            className={styles.mobileCtaButton}
+            aria-label="Order a project from me"
+          >
+            Order Project
+          </button>
         </nav>
       </div>
     </header>

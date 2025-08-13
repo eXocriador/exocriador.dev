@@ -78,8 +78,13 @@ const ProjectCard = React.memo(({ project }) => {
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className={styles.portfolioSection}>
-      <h2>My Recent Work</h2>
+    <section
+      id="portfolio"
+      className={styles.portfolioSection}
+      aria-labelledby="portfolio-title"
+      aria-label="Portfolio showcasing my recent web development projects"
+    >
+      <h2 id="portfolio-title">My Recent Work</h2>
 
       <div className={styles.portfolioGrid}>
         {projects.map((project) => (

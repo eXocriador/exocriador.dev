@@ -54,17 +54,7 @@ export const heroContent = {
     "Building Fast, Intuitive Web Applications that Solve Business Problems",
   subtitle: "Full-Stack Development | UI/UX Design",
   description:
-    "I transform complex ideas into elegant, user-friendly interfaces that captivate and engage. Every pixel, every animation, every interaction is crafted with purpose.",
-  ctaButtons: {
-    primary: {
-      text: "View My Work",
-      href: "#portfolio"
-    },
-    secondary: {
-      text: "Get In Touch",
-      href: "#footer"
-    }
-  }
+    "I transform complex ideas into elegant, user-friendly interfaces that captivate and engage. Every pixel, every animation, every interaction is crafted with purpose."
 };
 
 export const footerContent = {

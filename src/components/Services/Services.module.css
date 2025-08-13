@@ -28,19 +28,21 @@
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  /* Покращена початкова анімація */
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s ease, transform 0.5s ease,
-    all var(--transition-normal);
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: calc(var(--card-index, 0) * 0.15s);
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.serviceCard.animateIn {
+/* Видаляємо стару анімацію */
+/* .serviceCard.animateIn {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 .serviceCard::before {
   content: "";
@@ -554,5 +556,17 @@
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .serviceCard::before {
     opacity: 0.05;
+  }
+}
+
+/* Додаємо анімацію в кінець файлу */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

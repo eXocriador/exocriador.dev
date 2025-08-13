@@ -1,6 +1,7 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import { servicesContent } from "../../constants/content";
+import { scrollToSection } from "../../utils/scrollUtils";
 import styles from "./Services.module.css";
 
 // Custom inline SVG illustrations for each service
@@ -142,7 +143,15 @@ const ServiceCard = React.memo(({ service, index }) => {
       </div>
 
       <div className={styles.cardAction}>
-        <a href="#portfolio" className={styles.actionLink}>
+        <a
+          href="#portfolio"
+          className={styles.actionLink}
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("portfolio");
+          }}
+          aria-label={`View portfolio projects related to ${service.title}`}
+        >
           See related work →
         </a>
       </div>
@@ -152,8 +161,13 @@ const ServiceCard = React.memo(({ service, index }) => {
 
 const Services = () => {
   return (
-    <section id="services" className={styles.servicesSection}>
-      <h2>{servicesContent.title}</h2>
+    <section
+      id="services"
+      className={styles.servicesSection}
+      aria-labelledby="services-title"
+      aria-label="Services I offer including frontend development, animations, and React architecture"
+    >
+      <h2 id="services-title">{servicesContent.title}</h2>
       <div className={styles.cardsContainer}>
         {servicesContent.services.map((service, index) => (
           <ServiceCard key={index} service={service} index={index} />
