@@ -39,6 +39,13 @@ const About = () => {
       <div className={styles.introContainer}>
         <div className={styles.textColumn}>
           <p className={styles.narrative}>{aboutContent.narrative}</p>
+          {/* <div className={styles.descriptionContainer}>
+            {aboutContent.description.map((paragraph, index) => (
+              <p key={index} className={styles.descriptionParagraph}>
+                {paragraph}
+              </p>
+            ))}
+          </div> */}
         </div>
 
         <div className={styles.profileColumn}>
@@ -46,13 +53,6 @@ const About = () => {
             <div className={styles.photoFrame}>
               <div className={styles.photoContent}></div>
             </div>
-          </div>
-
-          <div className={styles.availability}>
-            <span className={styles.availabilityIcon}></span>
-            <span className={styles.availabilityText}>
-              Currently available for work
-            </span>
           </div>
         </div>
       </div>
