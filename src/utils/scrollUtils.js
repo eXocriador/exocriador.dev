@@ -6,7 +6,7 @@ export const scrollToSection = (targetId) => {
     const headerHeight = header ? header.offsetHeight : 0;
 
     // Розраховуємо позицію з урахуванням висоти хедера
-    const targetPosition = targetSection.offsetTop - headerHeight - 20;
+    const targetPosition = targetSection.offsetTop - headerHeight + 20;
 
     // Плавно прокручуємо до секції
     window.scrollTo({
@@ -14,4 +14,12 @@ export const scrollToSection = (targetId) => {
       behavior: "smooth"
     });
   }
+};
+
+export const scrollToContact = () => {
+  // Скролимо до самого низу сторінки
+  window.scrollTo({
+    top: document.documentElement.scrollHeight,
+    behavior: "smooth"
+  });
 };

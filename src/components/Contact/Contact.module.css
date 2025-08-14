@@ -2,10 +2,11 @@
   width: var(--section-width);
   max-width: var(--section-max-width);
   margin: 0 auto;
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-lg) 0;
   background: var(--primary-color);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   padding-top: 120px;
   min-height: fit-content;
 }
@@ -14,28 +15,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 50px;
   width: 100%;
   /* Початковий стан для fade-in анімації */
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  margin-bottom: 100px;
 }
 
 /* Responsive breakpoint для десктопу */
 @media (min-width: 830px) {
   .contactContainer {
     flex-direction: row;
-    align-items: flex-start;
-    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
   }
 
   .leftColumn {
     flex: 0 0 45%;
+    max-width: 45%;
   }
 
   .rightColumn {
     flex: 0 0 55%;
+    max-width: 600px;
   }
 }
 
@@ -91,8 +97,8 @@
 }
 
 .availabilityInfo {
-  background: rgba(var(--accent-color-rgb, 0, 123, 255), 0.05);
-  border: 1px solid rgba(var(--accent-color-rgb, 0, 123, 255), 0.1);
+  border: 1px solid var(--border-primary);
+  background: rgba(255, 107, 53, 0.05);
   border-radius: var(--radius-md);
   padding: var(--spacing-lg);
   margin-top: 0;
@@ -106,7 +112,7 @@
 }
 
 .availabilityText strong {
-  color: var(--accent-color);
+  color: var(--accent-secondary);
   font-weight: 600;
 }
 
@@ -137,6 +143,8 @@
 .rightColumn {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 600px;
 }
 
 .contactForm {
@@ -147,6 +155,9 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   margin-bottom: 0;
   height: fit-content;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .formGroup {
@@ -177,6 +188,7 @@
   font-size: var(--font-size-base);
   transition: all var(--transition-normal);
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 .formInput:focus,
@@ -252,14 +264,14 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .contactSection {
-    padding: var(--spacing-2xl) 0;
-    padding-top: 100px; /* Зменшуємо відступ зверху для планшетів */
-    min-height: fit-content; /* Висота за контентом */
+    padding: var(--spacing-md) var(--spacing-md);
+    padding-top: 100px;
+    min-height: fit-content;
   }
 
   .contactContainer {
     gap: var(--spacing-2xl);
-    margin: 0 var(--spacing-md);
+    margin: 0;
   }
 
   .leftColumn {
@@ -291,12 +303,12 @@
 
 @media (max-width: 480px) {
   .contactSection {
-    padding: var(--spacing-xl) 0;
-    padding-top: 80px; /* Зменшуємо відступ зверху для мобільних */
+    padding: var(--spacing-md) var(--spacing-sm);
+    padding-top: 80px;
   }
 
   .contactContainer {
-    margin: 0 var(--spacing-sm);
+    margin: 0;
     gap: var(--spacing-xl);
   }
 

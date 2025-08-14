@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styles from "./Header.module.css";
-import { scrollToSection } from "../../utils/scrollUtils";
+import { scrollToSection, scrollToContact } from "../../utils/scrollUtils";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,7 +10,13 @@ const Header = () => {
       e.preventDefault();
       const targetId = e.target.getAttribute("data-target-id");
       if (targetId) {
-        scrollToSection(targetId);
+        if (targetId === "contact") {
+          scrollToContact();
+        } else if (targetId === "what-i-offer") {
+          scrollToSection("what-i-offer");
+        } else {
+          scrollToSection(targetId);
+        }
         // Close mobile menu after navigation
         setIsMobileMenuOpen(false);
       }
@@ -62,9 +68,9 @@ const Header = () => {
         </a>
         <a
           className={styles.navLink}
-          href="#services"
-          data-target-id="services"
-          aria-label="Go to services section"
+          href="#what-i-offer"
+          data-target-id="what-i-offer"
+          aria-label="Go to what I offer section"
         >
           Services
         </a>
@@ -89,7 +95,7 @@ const Header = () => {
       {/* Desktop CTA Button */}
       <button
         className={styles.ctaButton}
-        onClick={() => scrollToSection("contact")}
+        onClick={scrollToContact}
         aria-label="Go to contact section to order a project"
       >
         Order Project

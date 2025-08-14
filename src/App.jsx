@@ -6,6 +6,7 @@ import WhatIOffer from "./components/WhatIOffer/WhatIOffer";
 import Portfolio from "./components/Portfolio/Portfolio";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+
 import styles from "./App.module.css";
 
 function App() {
@@ -16,11 +17,13 @@ function App() {
       <About />
       <WhatIOffer />
       <Portfolio />
-      {/* Фінальний екран з Contact та Footer */}
+      {/* Фінальний екран з Contact */}
       <section id="contact" className={styles.finalScreenWrapper}>
         <Contact />
-        <Footer />
       </section>
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 }

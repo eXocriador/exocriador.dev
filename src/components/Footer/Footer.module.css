@@ -1,0 +1,50 @@
+/* Footer Styles */
+.footer {
+  background: var(--secondary-color);
+  border-top: 1px solid var(--border-primary);
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.footerContent {
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+}
+
+.footerLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: var(--accent-color);
+  color: var(--text-primary);
+  border-radius: 50%;
+  font-size: var(--font-size-xl);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  min-height: var(--touch-target-size);
+  min-width: var(--touch-target-size);
+}
+
+.footerLink:hover {
+  background: var(--accent-secondary);
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.footerCopyright {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}

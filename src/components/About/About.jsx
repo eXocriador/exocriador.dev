@@ -4,17 +4,18 @@ import { aboutContent } from "../../constants/content";
 import styles from "./About.module.css";
 
 const techStack = {
-  "Core Frontend": [
-    "HTML5",
-    "CSS3",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js"
-  ],
-  "Styling & UI": ["Tailwind CSS", "CSS Modules", "Styled Components", "Figma"],
-  "Backend & Tools": ["Node.js", "Express.js", "MongoDB", "SQL"],
-  "Development Tools": ["Git", "GitHub", "Vite", "Webpack"]
+  Frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js"],
+  Backend: ["Node.js", "Express.js", "MongoDB", "SQL"],
+  Tools: [
+    "Git",
+    "GitHub",
+    "Vite",
+    "Webpack",
+    "Tailwind CSS",
+    "CSS Modules",
+    "Styled Components",
+    "Figma"
+  ]
 };
 
 const About = () => {
@@ -31,63 +32,47 @@ const About = () => {
       aria-labelledby="about-title"
       aria-label="About me and my technical skills"
     >
-      <div className={styles.mainContainer}>
-        {/* Left Column - Text Content (60% width) */}
-        <div className={styles.leftColumn}>
-          <h2 id="about-title" className={styles.sectionTitle}>
-            {aboutContent.title}
-          </h2>
+      <h2 id="about-title" className={styles.sectionTitle}>
+        About Me
+      </h2>
 
+      <div className={styles.introContainer}>
+        <div className={styles.textColumn}>
           <p className={styles.narrative}>{aboutContent.narrative}</p>
-
-          {/* Tech Stack Section */}
-          <div className={styles.techSection}>
-            <h3 className={styles.techSectionTitle}>My Core Instruments</h3>
-            <p className={styles.techSectionSubtitle}>
-              Technologies I use daily to bring ideas to life
-            </p>
-
-            <div className={styles.techCategories}>
-              {Object.entries(techStack).map(([category, technologies]) => (
-                <div key={category} className={styles.techCategory}>
-                  <h4 className={styles.categoryTitle}>{category}</h4>
-                  <div className={styles.techTagsContainer}>
-                    {technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className={`${styles.techTag} ${
-                          category === "Core Frontend" ? styles.coreTech : ""
-                        }`}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
-        {/* Right Column - Visual Block (40% width) */}
-        <div className={styles.rightColumn}>
-          {/* Image Component */}
+        <div className={styles.profileColumn}>
           <div className={styles.imageWrapper}>
             <div className={styles.photoFrame}>
               <div className={styles.photoContent}></div>
             </div>
           </div>
 
-          {/* Availability Block */}
-          <div className={styles.availabilityBlock}>
+          <div className={styles.availability}>
             <span className={styles.availabilityIcon}></span>
             <span className={styles.availabilityText}>
-              I'm currently available for hire
+              Currently available for work
             </span>
           </div>
         </div>
       </div>
+
+      <div className={styles.skillsContainer}>
+        {Object.entries(techStack).map(([category, technologies]) => (
+          <div key={category} className={styles.skillCategory}>
+            <h3 className={styles.categoryTitle}>{category}</h3>
+            <div className={styles.badgesContainer}>
+              {technologies.map((tech, index) => (
+                <div key={index} className={styles.badge}>
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
+
 export default About;

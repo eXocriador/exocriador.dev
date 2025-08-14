@@ -4,10 +4,9 @@
   margin: 0 auto;
   padding: var(--spacing-3xl) 0;
   min-height: 100vh;
-  display: flex;
+  display: grid;
   flex-direction: column;
   align-items: center;
-  /* Початковий стан для fade-in анімації */
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -19,32 +18,6 @@
   transform: translateY(0);
 }
 
-/* Main Container - Two Column Layout */
-.mainContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  width: 100%;
-  align-items: center;
-}
-
-/* Left Column - Text Content (60% width) */
-.leftColumn {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-2xl);
-}
-
-/* Right Column - Visual Block (40% width) */
-.rightColumn {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
-  align-items: center;
-}
-
 /* Section Title */
 .sectionTitle {
   font-size: var(--font-size-4xl);
@@ -53,6 +26,30 @@
   text-align: center;
   font-weight: 700;
   line-height: 1.2;
+}
+
+/* Intro Container - Primary Flex Container */
+.introContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* Text Column - Left Side (60% width) */
+.textColumn {
+  flex-basis: 60%;
+}
+
+/* Profile Column - Right Side (40% width) */
+.profileColumn {
+  flex-basis: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
 }
 
 /* Image Wrapper */
@@ -100,8 +97,8 @@
   background-repeat: no-repeat;
 }
 
-/* Availability Block */
-.availabilityBlock {
+/* Availability Status */
+.availability {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -112,7 +109,7 @@
   transition: all 0.3s ease;
 }
 
-.availabilityBlock:hover {
+.availability:hover {
   border-color: var(--accent-color);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
@@ -146,69 +143,61 @@
   border-left: 4px solid var(--accent-color);
 }
 
-/* Tech Section Styles */
-.techSection {
-  margin-top: 0;
-}
-
-.techSectionTitle {
-  margin-top: 0;
-  margin-bottom: var(--spacing-lg);
-  font-size: var(--font-size-2xl);
-  color: var(--text-primary);
-  font-weight: 700;
-}
-
-.techSectionSubtitle {
-  margin-top: 0;
-  margin-bottom: var(--spacing-lg);
-  color: var(--text-secondary);
-  font-size: var(--font-size-base);
-}
-
-.techCategories {
+/* Skills Container */
+.skillsContainer {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
+  flex-direction: row;
+  gap: var(--spacing-xl);
+  justify-content: space-between;
 }
 
-.techCategory {
+/* Skill Category */
+.skillCategory {
   background-color: var(--secondary-color);
   border: 1px solid var(--border-dark-gray);
   border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-xl);
   transition: all 0.3s ease;
+  flex: 1;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
 }
 
-.techCategory:hover {
+.skillCategory:hover {
   border-color: var(--accent-color);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
 .categoryTitle {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xl);
   font-weight: 600;
   margin-top: 0;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
   color: var(--text-primary);
   border-bottom: 2px solid var(--accent-color);
   padding-bottom: var(--spacing-xs);
 }
 
-.techTagsContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+/* Badges Container - Must allow wrapping */
+.badgesContainer {
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-sm);
+  flex: 1;
+  align-content: flex-start;
 }
 
-.techTag {
+/* Badge Styling */
+.badge {
   background-color: rgba(255, 107, 53, 0.1);
   border: 1px solid var(--border-primary);
   color: var(--accent-color);
-  padding: 8px 12px;
-  border-radius: 16px;
-  font-size: var(--font-size-xs);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: var(--font-size-sm);
   font-weight: 500;
   white-space: nowrap;
   transition: all 0.3s ease;
@@ -218,43 +207,52 @@
   text-align: center;
 }
 
-.techTag:hover {
+.badge:hover {
   background-color: var(--accent-color);
   color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow-primary);
 }
 
-/* Core Frontend tech tags get special styling */
-.coreTech {
-  background-color: rgba(255, 107, 53, 0.15);
-  border-color: var(--accent-color);
-  font-weight: 600;
-  font-size: var(--font-size-xs);
-  padding: 10px 16px;
-}
-
-.coreTech:hover {
-  box-shadow: 0 6px 16px var(--shadow-primary);
-}
-
 /* Responsive Design */
-@media screen and (min-width: 768px) {
-  .mainContainer {
-    flex-direction: row;
-    align-items: flex-start;
+@media screen and (max-width: 768px) {
+  .introContainer {
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  .leftColumn {
-    width: 60%;
+  .textColumn,
+  .profileColumn {
+    flex-basis: 100%;
   }
 
-  .rightColumn {
-    width: 40%;
+  .skillsContainer {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .skillCategory {
+    min-height: auto;
   }
 
   .sectionTitle {
-    text-align: left;
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .narrative {
+    font-size: var(--font-size-base);
+    text-align: center;
+  }
+
+  .categoryTitle {
+    font-size: var(--font-size-lg);
+    text-align: center;
+  }
+
+  .photoFrame {
+    width: 280px;
+    height: 280px;
   }
 }
 
@@ -263,8 +261,16 @@
     padding: var(--spacing-2xl) 0;
   }
 
-  .mainContainer {
+  .introContainer {
     gap: 2rem;
+  }
+
+  .skillsContainer {
+    gap: var(--spacing-lg);
+  }
+
+  .skillCategory {
+    min-height: 250px;
   }
 
   .photoFrame {
@@ -281,8 +287,8 @@
     font-size: var(--font-size-base);
   }
 
-  .techSectionTitle {
-    font-size: var(--font-size-xl);
+  .categoryTitle {
+    font-size: var(--font-size-lg);
   }
 }
 
@@ -292,7 +298,7 @@
     min-height: auto;
   }
 
-  .mainContainer {
+  .introContainer {
     gap: var(--spacing-xl);
   }
 
@@ -311,35 +317,17 @@
     text-align: center;
   }
 
-  .techSectionTitle {
+  .categoryTitle {
     font-size: var(--font-size-lg);
     text-align: center;
   }
 
-  .techSectionSubtitle {
-    text-align: center;
+  .skillCategory {
+    padding: var(--spacing-lg);
   }
 
-  .techCategory {
-    padding: var(--spacing-md);
-  }
-
-  .categoryTitle {
-    font-size: var(--font-size-xs);
-  }
-
-  .techTagsContainer {
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-    gap: var(--spacing-sm);
-  }
-
-  .techTag {
-    padding: 6px 10px;
-    font-size: var(--font-size-xs);
-  }
-
-  .coreTech {
-    padding: 8px 14px;
+  .badge {
+    padding: 6px 12px;
     font-size: var(--font-size-xs);
   }
 }
@@ -349,7 +337,7 @@
     padding: var(--spacing-lg) 0;
   }
 
-  .mainContainer {
+  .introContainer {
     gap: var(--spacing-lg);
   }
 
@@ -369,54 +357,36 @@
     padding: var(--spacing-md);
   }
 
-  .techSectionTitle {
+  .categoryTitle {
     font-size: var(--font-size-base);
     margin-bottom: var(--spacing-md);
   }
 
-  .techSectionSubtitle {
-    font-size: var(--font-size-sm);
+  .skillCategory {
+    padding: var(--spacing-md);
   }
 
-  .techCategory {
-    padding: var(--spacing-sm);
-  }
-
-  .categoryTitle {
-    font-size: var(--font-size-xs);
-  }
-
-  .techTagsContainer {
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    gap: var(--spacing-xs);
-  }
-
-  .techTag {
-    padding: 4px 8px;
-    font-size: var(--font-size-xs);
-  }
-
-  .coreTech {
-    padding: 6px 12px;
+  .badge {
+    padding: 4px 10px;
     font-size: var(--font-size-xs);
   }
 }
 
 /* Touch Device Optimization */
 @media (hover: none) and (pointer: coarse) {
-  .techTag:hover {
+  .badge:hover {
     transform: none;
   }
 
-  .techTag:active {
+  .badge:active {
     transform: translateY(-1px);
   }
 
-  .techCategory:hover {
+  .skillCategory:hover {
     transform: none;
   }
 
-  .techCategory:active {
+  .skillCategory:active {
     border-color: var(--accent-color);
     box-shadow: 0 4px 12px var(--shadow-primary);
   }
@@ -429,11 +399,11 @@
     transform: scale(1.01);
   }
 
-  .availabilityBlock:hover {
+  .availability:hover {
     transform: none;
   }
 
-  .availabilityBlock:active {
+  .availability:active {
     transform: translateY(-2px);
     border-color: var(--accent-color);
     box-shadow: 0 4px 12px var(--shadow-primary);
