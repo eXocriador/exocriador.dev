@@ -38,15 +38,22 @@ const About = () => {
       aria-labelledby="about-title"
       aria-label="About me and my technical skills"
     >
-      <div className={styles.aboutContainer}>
-        {/* Left Column - Sticky */}
-        <div className={styles.leftColumn}>
-          {/* Profile Image */}
-          <div className={styles.aboutImage}>
-            <div className={styles.photoFrame}>
-              <div className={styles.photoContent}></div>
-            </div>
+      <h2 id="about-title" className={styles.sectionTitle}>
+        {aboutContent.title}
+      </h2>
+
+      <div className={styles.grid}>
+        {/* Image Wrapper */}
+        <div className={styles.imageWrapper}>
+          <div className={styles.photoFrame}>
+            <div className={styles.photoContent}></div>
           </div>
+        </div>
+
+        {/* Text Content Wrapper */}
+        <div className={styles.textWrapper}>
+          {/* Narrative */}
+          <p className={styles.narrative}>{aboutContent.narrative}</p>
 
           {/* Principles Section */}
           <div className={styles.principlesSection}>
@@ -57,26 +64,15 @@ const About = () => {
                   <div className={styles.principleIcon} aria-hidden="true">
                     {iconMap[principle.icon]}
                   </div>
-                  <h4 className={styles.principleTitle}>{principle.text}</h4>
+                  <div className={styles.principleContent}>
+                    <h4 className={styles.principleTitle}>{principle.text}</h4>
+                    <p className={styles.principleDescription}>
+                      {principle.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Right Column - Scrollable Content */}
-        <div className={styles.rightColumn}>
-          {/* About Me Text */}
-          <div className={styles.aboutText}>
-            <h2 id="about-title">{aboutContent.title}</h2>
-            <p>
-              A passionate and detail-oriented developer from Ukraine, I
-              specialize in building intuitive and high-performing web
-              applications. My journey in tech is driven by a constant desire to
-              learn, innovate, and transform complex challenges into elegant,
-              user-friendly solutions. I believe in the power of clean code and
-              thoughtful design to create meaningful digital experiences.
-            </p>
           </div>
 
           {/* Tech Stack Section */}
