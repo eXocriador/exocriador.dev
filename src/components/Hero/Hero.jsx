@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useEffect, Suspense, lazy } from "react";
 import { useInView } from "react-intersection-observer";
 import { loadSlim } from "tsparticles-slim";
+import { TypeAnimation } from "react-type-animation";
 import { scrollToSection } from "../../utils/scrollUtils";
 import styles from "./Hero.module.css";
 
@@ -45,8 +46,8 @@ const Hero = () => {
     scrollToSection("portfolio");
   };
 
-  const handleGetInTouch = () => {
-    scrollToSection("contact");
+  const handleAboutMe = () => {
+    scrollToSection("about");
   };
 
   return (
@@ -150,7 +151,22 @@ const Hero = () => {
             subtitleInView ? styles.animateIn : ""
           }`}
         >
-          Frontend Developer & UI/UX Designer
+          <TypeAnimation
+            sequence={[
+              "Full-stack Developer",
+              2000,
+              "Software Engineer",
+              2000,
+              "TypeScript Enthusiast",
+              2000,
+              "Problem Solver",
+              2000
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={Infinity}
+            style={{ display: "inline-block" }}
+          />
         </h2>
 
         <div
@@ -160,19 +176,19 @@ const Hero = () => {
           }`}
         >
           <button
-            onClick={handleViewWork}
+            onClick={handleAboutMe}
             className={styles.ctaPrimary}
-            aria-label="View my portfolio projects"
+            aria-label="Learn more about me"
           >
-            View My Work
+            About Me
           </button>
 
           <button
-            onClick={handleGetInTouch}
+            onClick={handleViewWork}
             className={styles.ctaSecondary}
-            aria-label="Get in touch for collaboration"
+            aria-label="View my portfolio projects"
           >
-            Get in Touch
+            View My Work
           </button>
         </div>
       </div>

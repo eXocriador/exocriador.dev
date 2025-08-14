@@ -1,6 +1,5 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import { FaUserCheck, FaCode, FaTachometerAlt } from "react-icons/fa";
 import { aboutContent } from "../../constants/content";
 import styles from "./About.module.css";
 
@@ -18,12 +17,6 @@ const techStack = {
   "Development Tools": ["Git", "GitHub", "Vite", "Webpack"]
 };
 
-const iconMap = {
-  FaUserCheck: <FaUserCheck />,
-  FaCode: <FaCode />,
-  FaTachometerAlt: <FaTachometerAlt />
-};
-
 const About = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -38,42 +31,14 @@ const About = () => {
       aria-labelledby="about-title"
       aria-label="About me and my technical skills"
     >
-      <h2 id="about-title" className={styles.sectionTitle}>
-        {aboutContent.title}
-      </h2>
+      <div className={styles.mainContainer}>
+        {/* Left Column - Text Content (60% width) */}
+        <div className={styles.leftColumn}>
+          <h2 id="about-title" className={styles.sectionTitle}>
+            {aboutContent.title}
+          </h2>
 
-      <div className={styles.grid}>
-        {/* Image Wrapper */}
-        <div className={styles.imageWrapper}>
-          <div className={styles.photoFrame}>
-            <div className={styles.photoContent}></div>
-          </div>
-        </div>
-
-        {/* Text Content Wrapper */}
-        <div className={styles.textWrapper}>
-          {/* Narrative */}
           <p className={styles.narrative}>{aboutContent.narrative}</p>
-
-          {/* Principles Section */}
-          <div className={styles.principlesSection}>
-            <h3 className={styles.principlesTitle}>My Principles</h3>
-            <div className={styles.principlesGrid}>
-              {aboutContent.principles.map((principle, index) => (
-                <div key={index} className={styles.principleCard}>
-                  <div className={styles.principleIcon} aria-hidden="true">
-                    {iconMap[principle.icon]}
-                  </div>
-                  <div className={styles.principleContent}>
-                    <h4 className={styles.principleTitle}>{principle.text}</h4>
-                    <p className={styles.principleDescription}>
-                      {principle.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Tech Stack Section */}
           <div className={styles.techSection}>
@@ -101,6 +66,24 @@ const About = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Right Column - Visual Block (40% width) */}
+        <div className={styles.rightColumn}>
+          {/* Image Component */}
+          <div className={styles.imageWrapper}>
+            <div className={styles.photoFrame}>
+              <div className={styles.photoContent}></div>
+            </div>
+          </div>
+
+          {/* Availability Block */}
+          <div className={styles.availabilityBlock}>
+            <span className={styles.availabilityIcon}></span>
+            <span className={styles.availabilityText}>
+              I'm currently available for hire
+            </span>
           </div>
         </div>
       </div>

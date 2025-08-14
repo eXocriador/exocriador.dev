@@ -51,6 +51,8 @@
   transform: translateY(0);
 }
 
+
+
 /* Видаляємо зайві стилі для TypeAnimation */
 /* .title span {
   display: inline-block;
@@ -84,6 +86,13 @@
 .subtitle.animateIn {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Стилі для TypeAnimation в підзаголовку */
+.subtitle span {
+  display: inline-block;
+  width: 100%;
+  min-height: 1.2em;
 }
 
 /* Видаляємо зайві стилі для TypeAnimation */
