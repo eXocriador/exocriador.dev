@@ -3,8 +3,10 @@ const API_CONFIG = {
   // Базовий URL для API
   BASE_URL:
     process.env.NODE_ENV === "production"
-      ? "https://exocriador-backend.onrender.com" // Render.com URL
-      : "http://localhost:10000", // Локальний URL для розробки
+      ? import.meta.env.VITE_API_BASE_URL_PRODUCTION ||
+        "https://exocriador-backend.onrender.com"
+      : import.meta.env.VITE_API_BASE_URL_DEVELOPMENT ||
+        "http://localhost:10000",
 
   // Endpoints
   ENDPOINTS: {

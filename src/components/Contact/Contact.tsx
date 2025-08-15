@@ -94,12 +94,6 @@ const Contact: React.FC = () => {
 
   const formIsValid = isFormValid(formData, errors);
 
-  // Додаємо логування для діагностики
-  console.log("Form Data:", formData);
-  console.log("Errors:", errors);
-  console.log("Form is valid:", formIsValid);
-  console.log("Is submitting:", isSubmitting);
-
   return (
     <div
       ref={ref}

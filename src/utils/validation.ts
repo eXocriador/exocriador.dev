@@ -105,15 +105,5 @@ export const isFormValid = (
     formData.email.trim() !== "" &&
     formData.message.trim() !== "";
 
-  console.log("Validation check:", {
-    formData,
-    errors,
-    hasNoErrors,
-    allFieldsFilled,
-    nameValid: formData.name.trim() !== "",
-    emailValid: formData.email.trim() !== "",
-    messageValid: formData.message.trim() !== ""
-  });
-
   return hasNoErrors && allFieldsFilled;
 };
