@@ -2,75 +2,115 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="eXocriador" />
+    <meta name="application-name" content="eXocriador Portfolio" />
+    <meta name="msapplication-TileColor" content="#ff6b35" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <!-- PWA Icons -->
+    <link rel="apple-touch-icon" href="/icon-152x152.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+
     <!-- SEO Meta Tags -->
-    <title>eXocriador | Full-Stack Developer & UI/UX Designer</title>
+    <title>eXocriador - Full-stack Developer</title>
     <meta
       name="description"
-      content="eXocriador, a professional full-stack developer and UI/UX designer specializing in creating high-performance web applications with a focus on user experience."
+      content="Professional web development services. React, Node.js, modern web applications. Building fast, intuitive web applications that solve business problems."
     />
     <meta
       name="keywords"
-      content="frontend developer, fullstack developer, backend developer, react developer, UI/UX designer, web developer, javascript, typescript, animations"
+      content="web development, React, Node.js, frontend, backend, full-stack, UI/UX, TypeScript, modern web applications"
     />
     <meta name="author" content="eXocriador" />
+    <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://exocriador.dev/" />
+    <!-- Open Graph -->
     <meta
       property="og:title"
-      content="eXocriador | Full-Stack Developer & UI/UX Designer"
+      content="eXocriador - Full-stack Developer & UI/UX Designer"
     />
     <meta
       property="og:description"
-      content="Specializing in creating high-performance web applications. Let's build something amazing together."
+      content="Professional web development services. React, Node.js, modern web applications."
     />
-    <meta property="og:image" content="https://exocriador.dev/og-image.jpg" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:url" content="https://exocriador.dev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="eXocriador Portfolio" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://exocriador.dev/" />
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="eXocriador - Full-stack Developer" />
     <meta
-      property="twitter:title"
-      content="eXocriador | Full-Stack Developer & UI/UX Designer"
+      name="twitter:description"
+      content="Professional web development services"
     />
-    <meta
-      property="twitter:description"
-      content="Specializing in creating high-performance web applications. Let's build something amazing together."
-    />
-    <meta
-      property="twitter:image"
-      content="https://exocriador.dev/og-image.jpg"
-    />
-
-    <!-- Fonts -->
-    <link
-      rel="preload"
-      href="/fonts/space-grotesk-400.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/space-grotesk-700.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    <meta name="twitter:image" content="/og-image.jpg" />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#ff6b35" />
-    <meta name="msapplication-TileColor" content="#ff6b35" />
 
-    <!-- Robots -->
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://exocriador.dev/" />
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "eXocriador",
+        "jobTitle": "Full-stack Developer",
+        "description": "Professional web developer specializing in React, Node.js, and modern web technologies",
+        "url": "https://exocriador.dev",
+        "sameAs": [
+          "https://github.com/eXocriador",
+          "https://linkedin.com/in/exocriador",
+          "https://t.me/exocriador"
+        ],
+        "knowsAbout": [
+          "React",
+          "Node.js",
+          "TypeScript",
+          "Web Development",
+          "UI/UX Design",
+          "Frontend Development",
+          "Backend Development"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((registration) => {
+              console.log("SW registered: ", registration);
+            })
+            .catch((registrationError) => {
+              console.log("SW registration failed: ", registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

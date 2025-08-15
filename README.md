@@ -1,118 +1,224 @@
-# eXocriador Art - Portfolio Website
+# eXocriador Portfolio
 
-Сучасний та професійний веб-сайт портфоліо, створений з використанням React та сучасних веб-технологій.
+Professional portfolio website showcasing full-stack development services and projects.
 
-## 🚀 Особливості
+## 🚀 Features
 
-- **Responsive Design** - адаптивний дизайн для всіх пристроїв
-- **Modern UI/UX** - сучасний інтерфейс з плавними анімаціями
-- **Performance Optimized** - оптимізований для Core Web Vitals
-- **SEO Friendly** - повна SEO оптимізація
-- **Accessibility** - підтримка стандартів доступності
+- **Modern React 19** with TypeScript
+- **PWA Ready** - Installable as a mobile app
+- **Accessibility First** - WCAG 2.1 AA compliant
+- **Performance Optimized** - Core Web Vitals monitoring
+- **SEO Optimized** - Meta tags, structured data, sitemap
+- **Responsive Design** - Mobile-first approach
+- **Interactive Animations** - Smooth scroll animations and particles
+- **Contact Form** - Formspree integration
 
-## 🛠️ Технології
+## 🛠️ Tech Stack
 
-- **Frontend**: React 18, CSS Modules, Vite
-- **Styling**: CSS Variables, Flexbox, Grid
-- **Animations**: CSS Transitions, Intersection Observer
-- **Build Tool**: Vite
-- **Deployment**: Ready for production build
+- **Frontend**: React 19, TypeScript, CSS Modules
+- **Build Tool**: Vite 7
+- **Animations**: React Intersection Observer, TSParticles
+- **Performance**: Web Vitals API
+- **PWA**: Service Worker, Web App Manifest
+- **Linting**: ESLint 9 with React rules
 
-## 📁 Структура проекту
+## 📱 PWA Features
+
+- Offline functionality
+- Install prompt
+- Push notifications support
+- Background sync
+- App-like experience
+
+## ♿ Accessibility Features
+
+- Skip to main content link
+- ARIA labels and roles
+- Keyboard navigation support
+- Screen reader compatibility
+- High contrast focus indicators
+- Semantic HTML structure
+
+## 🎯 Performance Features
+
+- Core Web Vitals monitoring
+- Performance budgets
+- Resource loading optimization
+- Long task detection
+- Layout shift monitoring
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/eXocriador/exocriador-art.git
+
+# Navigate to project directory
+cd exocriador-art
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+```
+
+## 📁 Project Structure
 
 ```
 src/
-├── components/          # React компоненти
-│   ├── About/          # Секція "Про мене"
-│   ├── Footer/         # Підвал сайту
-│   ├── Header/         # Заголовок з навігацією
-│   ├── Hero/           # Головна секція
-│   ├── Portfolio/      # Портфоліо проектів
-│   └── Services/       # Послуги
-├── data/               # Дані проектів
-├── constants/          # Контент та константи
-└── styles/             # Глобальні стилі
+├── components/          # React components
+│   ├── About/          # About section
+│   ├── Contact/        # Contact form
+│   ├── Footer/         # Footer
+│   ├── Header/         # Navigation header
+│   ├── Hero/           # Hero section
+│   ├── Portfolio/      # Portfolio projects
+│   ├── WhatIOffer/     # Services section
+│   └── SkipLink/       # Accessibility skip link
+├── constants/           # Content constants
+├── data/               # Static data
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+│   ├── animations.ts   # Animation utilities
+│   ├── scrollUtils.ts  # Scroll navigation
+│   └── webVitals.ts   # Performance monitoring
+├── App.tsx             # Main app component
+└── main.tsx            # App entry point
 ```
 
-## 🚀 Швидкий старт
+## 🔧 Configuration
 
-### Встановлення залежностей
-```bash
-npm install
-```
+### TypeScript
 
-### Запуск в режимі розробки
-```bash
-npm run dev
-```
+The project uses strict TypeScript configuration with:
 
-### Збірка для продакшену
+- Strict mode enabled
+- No unused variables
+- No implicit returns
+- No unchecked indexed access
+
+### ESLint
+
+ESLint is configured with:
+
+- React Hooks rules
+- React Refresh for Vite
+- TypeScript support
+- Accessibility best practices
+
+### PWA
+
+PWA features are configured in:
+
+- `public/manifest.json` - Web App Manifest
+- `public/sw.js` - Service Worker
+- `index.html` - PWA meta tags
+
+## 📊 Performance Monitoring
+
+The app automatically monitors:
+
+- Largest Contentful Paint (LCP)
+- First Input Delay (FID)
+- Cumulative Layout Shift (CLS)
+- First Contentful Paint (FCP)
+- Time to First Byte (TTFB)
+
+Performance data is logged to console and can be sent to analytics services.
+
+## ♿ Accessibility Compliance
+
+The app follows WCAG 2.1 AA guidelines:
+
+- Proper heading structure
+- ARIA labels and roles
+- Keyboard navigation
+- Screen reader support
+- Color contrast compliance
+- Focus management
+
+## 🔍 SEO Features
+
+- Meta tags optimization
+- Open Graph support
+- Twitter Cards
+- Structured data (JSON-LD)
+- Sitemap generation
+- Robots.txt configuration
+
+## 📱 PWA Installation
+
+Users can install the app on their devices:
+
+1. Visit the website
+2. Look for install prompt
+3. Add to home screen
+4. Enjoy app-like experience
+
+## 🚀 Deployment
+
+### Build
+
 ```bash
 npm run build
 ```
 
-### Попередній перегляд збірки
-```bash
-npm run preview
-```
+### Deploy
 
-## 🎨 Кастомізація
+The built files in `dist/` can be deployed to:
 
-### Зміна контенту
-Весь контент знаходиться в `src/constants/content.js` - просто відредагуйте цей файл для зміни тексту.
+- Vercel
+- Netlify
+- AWS S3
+- Any static hosting service
 
-### Додавання проектів
-Додайте нові проекти в `src/data/projects.js` - вони автоматично з'являться в портфоліо.
+## 📈 Analytics
 
-### Зміна кольорів
-Кольорова схема налаштовується через CSS змінні в `src/index.css`.
+Performance metrics are automatically collected and can be integrated with:
 
-## 📱 Responsive Breakpoints
+- Google Analytics 4
+- Custom analytics endpoints
+- Performance monitoring services
 
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
+## 🤝 Contributing
 
-## 🌟 Основні секції
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
-1. **Hero** - головна секція з CTA кнопками
-2. **About** - інформація про розробника та технології
-3. **Services** - послуги та спеціалізації
-4. **Portfolio** - роботи та проекти
-5. **Footer** - контакти та соціальні мережі
+## 📄 License
 
-## 📈 SEO Оптимізація
+This project is licensed under the MIT License.
 
-- Meta теги та Open Graph
-- Семантична HTML структура
-- Оптимізовані зображення
-- Швидке завантаження
+## 📞 Contact
 
-## 🔧 Розробка
-
-### Структура компонентів
-Кожен компонент має:
-- `.jsx` файл з логікою
-- `.module.css` файл зі стилями
-- TypeScript готовність (можна легко додати)
-
-### Стилі
-Використовуються CSS Modules для ізоляції стилів та CSS змінні для консистентності.
-
-## 📄 Ліцензія
-
-MIT License - вільне використання та модифікація.
-
-## 🤝 Внесок
-
-Вітаються pull requests та пропозиції щодо покращення!
-
-## 📞 Контакти
-
+- **Email**: exocriador@gmail.com
 - **GitHub**: [@eXocriador](https://github.com/eXocriador)
-- **LinkedIn**: [exocriador](https://linkedin.com/in/exocriador)
+- **LinkedIn**: [@exocriador](https://linkedin.com/in/exocriador)
 - **Telegram**: [@exocriador](https://t.me/exocriador)
 
----
+## 🙏 Acknowledgments
 
-Створено з ❤️ та ☕ для світу веб-розробки
+- React team for the amazing framework
+- Vite team for the fast build tool
+- TSParticles for interactive animations
+- Web Vitals team for performance metrics

@@ -99,6 +99,45 @@ html {
   font-size: var(--font-size-base);
 }
 
+/* Оптимізація скролу для кращого FPS */
+body.scrolling {
+  /* Призупиняємо важкі анімації під час скролу */
+  --transition-normal: 0ms;
+  --transition-slow: 0ms;
+}
+
+body.scrolling * {
+  /* Призупиняємо всі анімації під час скролу */
+  animation-play-state: paused !important;
+  transition-duration: 0ms !important;
+}
+
+/* Оптимізація для мобільних пристроїв */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto; /* Вимикаємо smooth scroll на мобільних для кращої продуктивності */
+  }
+  
+  /* Зменшуємо кількість анімацій на мобільних */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
+}
+
+/* Оптимізація для пристроїв з низькою продуктивністю */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 body {
   font-family: var(--font-family);
   line-height: 1.7;

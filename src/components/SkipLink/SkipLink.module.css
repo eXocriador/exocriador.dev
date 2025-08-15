@@ -1,0 +1,30 @@
+.skipLink {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #ff6b35;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 10000;
+  font-weight: 600;
+  transition: top 0.3s ease;
+}
+
+.skipLink:focus {
+  top: 6px;
+  outline: 2px solid #ff6b35;
+  outline-offset: 2px;
+}
+
+/* Hide skip link visually but keep it accessible to screen readers */
+.skipLink:not(:focus) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
