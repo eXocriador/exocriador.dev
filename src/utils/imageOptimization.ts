@@ -65,7 +65,7 @@ export const generateOptimizedImageUrl = (
 export const generateBlurPlaceholderUrl = (originalUrl: string): string => {
   return generateOptimizedImageUrl(
     originalUrl,
-    PLACEHOLDER_SIZES[0],
+    PLACEHOLDER_SIZES[0]!,
     "jpg",
     10
   );
@@ -130,14 +130,14 @@ export const generateImageUrls = (originalUrl: string) => {
   const optimalFormat = getOptimalFormat();
 
   return {
-    src: generateOptimizedImageUrl(originalUrl, IMAGE_SIZES[1], optimalFormat),
+    src: generateOptimizedImageUrl(originalUrl, IMAGE_SIZES[1]!, optimalFormat),
     srcSet: generateSrcSet(originalUrl),
     sizes: generateSizes(),
     placeholder: generateBlurPlaceholderUrl(originalUrl),
     formats: {
-      webp: generateOptimizedImageUrl(originalUrl, IMAGE_SIZES[1], "webp"),
-      avif: generateOptimizedImageUrl(originalUrl, IMAGE_SIZES[1], "avif"),
-      jpg: generateOptimizedImageUrl(originalUrl, IMAGE_SIZES[1], "jpg")
+      webp: generateOptimizedImageUrl(originalUrl, IMAGE_SIZES[1]!, "webp"),
+      avif: generateOptimizedImageUrl(originalUrl, IMAGE_SIZES[1]!, "avif"),
+      jpg: generateOptimizedImageUrl(originalUrl, IMAGE_SIZES[1]!, "jpg")
     }
   };
 };

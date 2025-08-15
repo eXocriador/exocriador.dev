@@ -1,9 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import {
-  generateImageUrls,
-  generateBlurPlaceholderUrl
-} from "../../utils/imageOptimization";
+import { generateImageUrls } from "../../utils/imageOptimization";
 import styles from "./OptimizedImage.module.css";
 
 interface OptimizedImageProps {
