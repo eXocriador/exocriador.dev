@@ -4,17 +4,41 @@ import { aboutContent } from "../../constants/content";
 import styles from "./About.module.css";
 
 const techStack = {
-  Frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js"],
-  Backend: ["Node.js", "Express.js", "MongoDB", "SQL"],
-  Tools: [
-    "Git",
-    "GitHub",
-    "Vite",
-    "Webpack",
+  Frontend: [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Redux",
     "Tailwind CSS",
     "CSS Modules",
-    "Styled Components",
-    "Figma"
+    "Styled Components"
+  ],
+  Backend: [
+    "Node.js",
+    "Express.js",
+    "Python",
+    "MongoDB",
+    "PostgreSQL",
+    "MySQL",
+    "GraphQL",
+    "REST APIs",
+    "JWT",
+    "OAuth"
+  ],
+  Tools: [
+    "Git",
+    "Docker",
+    "Kubernetes",
+    "Vite",
+    "Webpack",
+    "ESLint",
+    "Prettier",
+    "Figma",
+    "Postman",
+    "Cursor"
   ]
 };
 

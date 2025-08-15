@@ -1,22 +1,13 @@
 import React, { useCallback, useState } from "react";
 import styles from "./Header.module.css";
-import { scrollToSection, scrollToContact } from "../../utils/scrollUtils";
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLElement>) => {
     if (e.target instanceof HTMLAnchorElement) {
-      e.preventDefault();
       const targetId = e.target.getAttribute("data-target-id");
       if (targetId) {
-        if (targetId === "contact") {
-          scrollToContact();
-        } else if (targetId === "what-i-offer") {
-          scrollToSection("what-i-offer");
-        } else {
-          scrollToSection(targetId);
-        }
         // Close mobile menu after navigation
         setIsMobileMenuOpen(false);
       }
@@ -93,13 +84,13 @@ const Header: React.FC = () => {
       </nav>
 
       {/* Desktop CTA Button */}
-      <button
+      <a
+        href="#contact"
         className={styles.ctaButton}
-        onClick={scrollToContact}
         aria-label="Go to contact section to order a project"
       >
         Order Project
-      </button>
+      </a>
 
       {/* Mobile Menu Button */}
       <button
@@ -188,16 +179,14 @@ const Header: React.FC = () => {
           >
             Contact
           </a>
-          <button
+          <a
+            href="#contact"
             className={styles.mobileCtaButton}
-            onClick={() => {
-              scrollToSection("contact");
-              closeMobileMenu();
-            }}
+            onClick={closeMobileMenu}
             aria-label="Go to contact section to order a project"
           >
             Order Project
-          </button>
+          </a>
         </nav>
       </div>
     </header>

@@ -21,7 +21,7 @@
 .sectionTitle {
   font-size: var(--font-size-4xl);
   color: var(--text-primary);
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
   text-align: center;
   font-weight: 700;
   line-height: 1.2;
@@ -31,10 +31,10 @@
 .introContainer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 3rem;
   width: 100%;
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 /* Text Column - Left Side (60% width) */

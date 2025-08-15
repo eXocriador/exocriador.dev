@@ -51,14 +51,6 @@
   transform: translateY(0);
 }
 
-
-
-/* Видаляємо зайві стилі для TypeAnimation */
-/* .title span {
-  display: inline-block;
-  width: 100%;
-} */
-
 .gradientText {
   background: linear-gradient(
     135deg,
@@ -94,12 +86,6 @@
   width: 100%;
   min-height: 1.2em;
 }
-
-/* Видаляємо зайві стилі для TypeAnimation */
-/* .subtitle span {
-  display: inline-block;
-  width: 100%;
-} */
 
 /* CTA Container */
 .ctaContainer {

@@ -8,18 +8,10 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import SkipLink from "./components/SkipLink/SkipLink";
 import ServiceWorkerStatus from "./components/ServiceWorkerStatus/ServiceWorkerStatus";
-import { useScrollOptimization } from "./hooks/useScrollOptimization";
 
 import styles from "./App.module.css";
 
 const App: React.FC = () => {
-  // Оптимізація скролу для кращого FPS
-  useScrollOptimization({
-    throttleMs: 16, // 60fps
-    passive: true,
-    disableOnMobile: true
-  });
-
   return (
     <>
       <SkipLink />

@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect, Suspense, lazy } from "react";
 import { useInView } from "react-intersection-observer";
 import { loadSlim } from "tsparticles-slim";
 import { TypeAnimation } from "react-type-animation";
-import { scrollToSection } from "../../utils/scrollUtils";
+
 import styles from "./Hero.module.css";
 
 // Lazy load the Particles component
@@ -43,11 +43,11 @@ const Hero: React.FC = () => {
   });
 
   const handleViewWork = (): void => {
-    scrollToSection("portfolio");
+    // Скролл відбувається автоматично через href="#portfolio"
   };
 
   const handleAboutMe = (): void => {
-    scrollToSection("about");
+    // Скролл відбувається автоматично через href="#about"
   };
 
   const particlesConfig = {

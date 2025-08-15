@@ -99,17 +99,30 @@ html {
   font-size: var(--font-size-base);
 }
 
-/* Оптимізація скролу для кращого FPS */
-body.scrolling {
-  /* Призупиняємо важкі анімації під час скролу */
-  --transition-normal: 0ms;
-  --transition-slow: 0ms;
+/* Правильний скрол до секцій з урахуванням висоти хедера */
+#about,
+#portfolio,
+#services,
+#contact {
+  scroll-margin-top: 80px; /* Висота хедера + додатковий відступ */
 }
 
-body.scrolling * {
-  /* Призупиняємо всі анімації під час скролу */
-  animation-play-state: paused !important;
-  transition-duration: 0ms !important;
+/* Додаткові секції, якщо потрібно */
+#hero,
+#what-i-offer {
+  scroll-margin-top: 80px;
+}
+
+/* Для мобільних пристроїв можна зменшити відступ */
+@media (max-width: 768px) {
+  #about,
+  #portfolio,
+  #services,
+  #contact,
+  #hero,
+  #what-i-offer {
+    scroll-margin-top: 60px;
+  }
 }
 
 /* Оптимізація для мобільних пристроїв */
@@ -117,7 +130,7 @@ body.scrolling * {
   html {
     scroll-behavior: auto; /* Вимикаємо smooth scroll на мобільних для кращої продуктивності */
   }
-  
+
   /* Зменшуємо кількість анімацій на мобільних */
   * {
     animation-duration: 0.3s !important;
@@ -130,7 +143,7 @@ body.scrolling * {
   html {
     scroll-behavior: auto;
   }
-  
+
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

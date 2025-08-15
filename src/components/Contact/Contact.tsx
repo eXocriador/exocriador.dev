@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { FormData } from "../../types";
+import {
+  validateField,
+  validateForm,
+  isFormValid,
+  FormErrors
+} from "../../utils/validation";
 import styles from "./Contact.module.css";
 
 const Contact: React.FC = () => {
@@ -9,6 +15,7 @@ const Contact: React.FC = () => {
     email: "",
     message: ""
   });
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
     null
@@ -23,9 +30,18 @@ const Contact: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void => {
     const { name, value } = e.target;
+    const fieldName = name as keyof FormData;
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [fieldName]: value
+    }));
+
+    // Валідуємо поле в реальному часі
+    const error = validateField(fieldName, value);
+    setErrors((prev) => ({
+      ...prev,
+      [fieldName]: error
     }));
   };
 
@@ -33,12 +49,20 @@ const Contact: React.FC = () => {
     e: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault();
+
+    // Валідуємо всю форму
+    const validationErrors = validateForm(formData);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      // Використовуємо Formspree для обробки форми
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      // Відправляємо на власний бекенд
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -49,15 +73,21 @@ const Contact: React.FC = () => {
       if (response.ok) {
         setSubmitStatus("success");
         setFormData({ name: "", email: "", message: "" });
+        setErrors({});
       } else {
+        const errorData = await response.json();
         setSubmitStatus("error");
+        console.error("Server error:", errorData);
       }
-    } catch {
+    } catch (error) {
       setSubmitStatus("error");
+      console.error("Network error:", error);
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  const formIsValid = isFormValid(formData, errors);
 
   return (
     <div
@@ -137,11 +167,11 @@ const Contact: React.FC = () => {
               className={styles.formInput}
               placeholder="Your full name"
               aria-describedby="name-error"
-              aria-invalid={submitStatus === "error" && !formData.name}
+              aria-invalid={!!errors.name}
             />
-            {submitStatus === "error" && !formData.name && (
+            {errors.name && (
               <div id="name-error" className={styles.errorText} role="alert">
-                Name is required
+                {errors.name}
               </div>
             )}
           </div>
@@ -160,11 +190,11 @@ const Contact: React.FC = () => {
               className={styles.formInput}
               placeholder="your.email@example.com"
               aria-describedby="email-error"
-              aria-invalid={submitStatus === "error" && !formData.email}
+              aria-invalid={!!errors.email}
             />
-            {submitStatus === "error" && !formData.email && (
+            {errors.email && (
               <div id="email-error" className={styles.errorText} role="alert">
-                Valid email is required
+                {errors.email}
               </div>
             )}
           </div>
@@ -183,11 +213,11 @@ const Contact: React.FC = () => {
               className={styles.formTextarea}
               placeholder="Tell me about your project, timeline, and any specific requirements..."
               aria-describedby="message-error"
-              aria-invalid={submitStatus === "error" && !formData.message}
+              aria-invalid={!!errors.message}
             />
-            {submitStatus === "error" && !formData.message && (
+            {errors.message && (
               <div id="message-error" className={styles.errorText} role="alert">
-                Message is required
+                {errors.message}
               </div>
             )}
           </div>
@@ -195,7 +225,7 @@ const Contact: React.FC = () => {
           <button
             type="submit"
             className={styles.submitButton}
-            disabled={isSubmitting}
+            disabled={isSubmitting || !formIsValid}
             aria-describedby="submit-status"
             aria-busy={isSubmitting}
           >
