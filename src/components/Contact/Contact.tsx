@@ -7,6 +7,7 @@ import {
   isFormValid,
   FormErrors
 } from "../../utils/validation";
+import { getApiUrl, createRequestConfig } from "../../config/api";
 import styles from "./Contact.module.css";
 
 const Contact: React.FC = () => {
@@ -39,10 +40,17 @@ const Contact: React.FC = () => {
 
     // Валідуємо поле в реальному часі
     const error = validateField(fieldName, value);
-    setErrors((prev) => ({
-      ...prev,
-      [fieldName]: error
-    }));
+    setErrors((prev) => {
+      if (error) {
+        // Якщо є помилка, додаємо її
+        return { ...prev, [fieldName]: error };
+      } else {
+        // Якщо помилки немає, видаляємо поле з errors
+        const newErrors = { ...prev };
+        delete newErrors[fieldName];
+        return newErrors;
+      }
+    });
   };
 
   const handleSubmit = async (
@@ -61,14 +69,11 @@ const Contact: React.FC = () => {
     setSubmitStatus(null);
 
     try {
-      // Відправляємо на власний бекенд
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
+      // Відправляємо на наш бекенд
+      const response = await fetch(
+        getApiUrl("/api/contact"),
+        createRequestConfig("POST", formData)
+      );
 
       if (response.ok) {
         setSubmitStatus("success");
@@ -88,6 +93,12 @@ const Contact: React.FC = () => {
   };
 
   const formIsValid = isFormValid(formData, errors);
+
+  // Додаємо логування для діагностики
+  console.log("Form Data:", formData);
+  console.log("Errors:", errors);
+  console.log("Form is valid:", formIsValid);
+  console.log("Is submitting:", isSubmitting);
 
   return (
     <div

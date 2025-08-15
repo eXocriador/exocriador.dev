@@ -36,39 +36,62 @@ export const validateField = (
   name: keyof FormData,
   value: string
 ): string | undefined => {
-  try {
-    if (name === "name") {
-      contactFormSchema.shape.name.parse(value);
-    } else if (name === "email") {
-      contactFormSchema.shape.email.parse(value);
-    } else if (name === "message") {
-      contactFormSchema.shape.message.parse(value);
+  if (name === "name") {
+    if (!value || value.trim() === "") {
+      return "Ім'я обов'язкове";
+    }
+    if (value.trim().length < 2) {
+      return "Ім'я має бути не менше 2 символів";
     }
     return undefined;
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      return (error as z.ZodError).errors[0]?.message;
+  } else if (name === "email") {
+    // Спрощена валідація email
+    if (!value || value.trim() === "") {
+      return "Email обов'язковий";
     }
-    return "Невідома помилка валідації";
+    // Проста перевірка на наявність @ та крапки
+    if (!value.includes("@") || !value.includes(".")) {
+      return "Введіть коректну email адресу";
+    }
+    return undefined;
+  } else if (name === "message") {
+    if (!value || value.trim() === "") {
+      return "Повідомлення обов'язкове";
+    }
+    if (value.trim().length < 10) {
+      return "Повідомлення має бути не менше 10 символів";
+    }
+    return undefined;
   }
+  return undefined;
 };
 
 // Функція валідації всієї форми
 export const validateForm = (formData: FormData): FormErrors => {
-  try {
-    contactFormSchema.parse(formData);
-    return {};
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      const newErrors: FormErrors = {};
-      (error as z.ZodError).errors.forEach((err: z.ZodIssue) => {
-        const field = err.path[0] as keyof FormData;
-        newErrors[field] = err.message;
-      });
-      return newErrors;
-    }
-    return { name: "Невідома помилка валідації" };
+  const newErrors: FormErrors = {};
+
+  // Валідація імені
+  if (!formData.name || formData.name.trim() === "") {
+    newErrors.name = "Ім'я обов'язкове";
+  } else if (formData.name.trim().length < 2) {
+    newErrors.name = "Ім'я має бути не менше 2 символів";
   }
+
+  // Валідація email
+  if (!formData.email || formData.email.trim() === "") {
+    newErrors.email = "Email обов'язковий";
+  } else if (!formData.email.includes("@") || !formData.email.includes(".")) {
+    newErrors.email = "Введіть коректну email адресу";
+  }
+
+  // Валідація повідомлення
+  if (!formData.message || formData.message.trim() === "") {
+    newErrors.message = "Повідомлення обов'язкове";
+  } else if (formData.message.trim().length < 10) {
+    newErrors.message = "Повідомлення має бути не менше 10 символів";
+  }
+
+  return newErrors;
 };
 
 // Функція перевірки чи форма валідна
@@ -76,8 +99,21 @@ export const isFormValid = (
   formData: FormData,
   errors: FormErrors
 ): boolean => {
-  return (
-    Object.keys(errors).length === 0 &&
-    Object.values(formData).every((value) => value.trim() !== "")
-  );
+  const hasNoErrors = Object.keys(errors).length === 0;
+  const allFieldsFilled =
+    formData.name.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    formData.message.trim() !== "";
+
+  console.log("Validation check:", {
+    formData,
+    errors,
+    hasNoErrors,
+    allFieldsFilled,
+    nameValid: formData.name.trim() !== "",
+    emailValid: formData.email.trim() !== "",
+    messageValid: formData.message.trim() !== ""
+  });
+
+  return hasNoErrors && allFieldsFilled;
 };
