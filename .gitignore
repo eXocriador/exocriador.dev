@@ -7,10 +7,21 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+*/node_modules
+
+# Build outputs
 dist
 dist-ssr
+build
+*/dist
+*/build
 *.local
+
+# Vite cache
+.vite
+*/.vite
 
 # Editor directories and files
 .vscode/*
@@ -29,3 +40,21 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
+*/.env
+*/.env.local
+*/.env.development.local
+*/.env.test.local
+*/.env.production.local
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
