@@ -1,0 +1,7 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, #000000, #ffffff);
+  border: 1px solid red;
+}

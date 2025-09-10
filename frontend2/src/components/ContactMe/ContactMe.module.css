@@ -1,0 +1,46 @@
+.contactSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  border: 1px solid red;
+  border-radius: 10px;
+  background: linear-gradient(to top, #000000, #ffffff);
+  padding: 2rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.sectionContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid yellow;
+  width: 100%;
+  height: 100%;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  width: 100%;
+  height: 100%;
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid green;
+  width: 100%;
+  height: 100%;
+}
