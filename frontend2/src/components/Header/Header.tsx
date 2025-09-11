@@ -4,8 +4,10 @@ import styles from "./Header.module.css";
 const Header: React.FC = () => {
   return (
     <header className={styles.header}>
-      <div>
-        <a href="#">exocriador.dev</a>
+      <div className={styles.logo}>
+        <a href="#">
+          eXocriador<span className={styles.logoAccent}>.dev</span>
+        </a>
       </div>
       <nav className={styles.nav}>
         <a href="#">Home</a>
@@ -14,9 +16,7 @@ const Header: React.FC = () => {
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div>
-        <a href="#contact">Order Project</a>
-      </div>
+      <button className="button buttonSmall">Order Project</button>
     </header>
   );
 };

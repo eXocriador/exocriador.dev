@@ -3,12 +3,12 @@ import styles from "./About.module.css";
 
 const About: React.FC = () => {
   return (
-    <section className={styles.aboutSection}>
-      <h2 className={styles.sectionTitle}>About Component</h2>
-      <div className={styles.sectionContent}>
-        <div className={styles.introContainer}>
-          <h3 className={styles.introTitle}>About Me</h3>
-          <p className={styles.introText}>
+    <section className={`section ${styles.aboutSection}`}>
+      <h2 className="sectionTitle">About Component</h2>
+      <div className="sectionContent">
+        <div className="containerStart">
+          <h3 className={`title ${styles.introTitle}`}>About Me</h3>
+          <p className={`text ${styles.introText}`}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
             ratione enim atque unde minima quo corrupti eos facere est ipsum
             vitae numquam reprehenderit, voluptatum quae assumenda! Eligendi
@@ -22,14 +22,24 @@ const About: React.FC = () => {
             maxime inventore, suscipit nam!
           </p>
         </div>
-        <div className={styles.skillsContainer}>
-          <h3 className={styles.skillsTitle}>My Tech Stack</h3>
-          <ul className={styles.skillsList}>
-            <li className={styles.skillItem}>Skill Item</li>
-            <li className={styles.skillItem}>Skill Item</li>
-            <li className={styles.skillItem}>Skill Item</li>
-            <li className={styles.skillItem}>Skill Item</li>
-            <li className={styles.skillItem}>Skill Item</li>
+        <div className="containerColumn">
+          <h3 className={`title ${styles.skillsTitle}`}>My Tech Stack</h3>
+          <ul className="grid gridSingle">
+            <li className="card">
+              <span className="cardText">Skill Item</span>
+            </li>
+            <li className="card">
+              <span className="cardText">Skill Item</span>
+            </li>
+            <li className="card">
+              <span className="cardText">Skill Item</span>
+            </li>
+            <li className="card">
+              <span className="cardText">Skill Item</span>
+            </li>
+            <li className="card">
+              <span className="cardText">Skill Item</span>
+            </li>
           </ul>
         </div>
       </div>

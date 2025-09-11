@@ -2,6 +2,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to top, #000000, #ffffff);
-  border: 1px solid red;
+  background-color: var(--secondary-color);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  border-top: 1px solid var(--border-primary);
+}
+
+.footerLinks {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.footerCopyright {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  text-align: center;
 }

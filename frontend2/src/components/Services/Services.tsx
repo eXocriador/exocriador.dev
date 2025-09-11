@@ -1,47 +1,47 @@
 import React from "react";
 import styles from "./Services.module.css";
 
-interface servicesInterface {
-  id: number;
-  title: string;
-  description: string;
-}
-
-const services: servicesInterface[] = [
-  {
-    id: 1,
-    title: "Service 1",
-    description: "Service 1 description",
-  },
-  {
-    id: 2,
-    title: "Service 2",
-    description: "Service 2 description",
-  },
-  {
-    id: 3,
-    title: "Service 3",
-    description: "Service 3 description",
-  },
-  {
-    id: 4,
-    title: "Service 4",
-    description: "Service 4 description",
-  },
-];
-
 const Services: React.FC = () => {
   return (
-    <section className={styles.servicesSection}>
-      <h2 className={styles.sectionTitle}>Services Component</h2>
-      <ul className={styles.servicesContainer}>
-        {services.map((service) => (
-          <li key={service.id} title={service.title}>
-            <h3 className={styles.serviceTitle}>{service.title}</h3>
-            <p className={styles.serviceDescription}>{service.description}</p>
-          </li>
-        ))}
-      </ul>
+    <section className={`section ${styles.servicesSection}`}>
+      <h2 className="sectionTitle">Services</h2>
+      <div className="sectionContent">
+        <div className="containerStart">
+          <h3 className="title">What I Offer</h3>
+          <p className="text">
+            I provide comprehensive development services to help you build modern,
+            scalable, and user-friendly applications that drive business growth.
+          </p>
+          <div className="grid gridSingle">
+            <div className="card">
+              <span className="cardText">🚀 Web Development</span>
+            </div>
+            <div className="card">
+              <span className="cardText">📱 Mobile Apps</span>
+            </div>
+            <div className="card">
+              <span className="cardText">⚡ Performance Optimization</span>
+            </div>
+          </div>
+        </div>
+        <div className="containerColumn">
+          <h3 className="title">Technologies</h3>
+          <div className="grid gridSingle">
+            <div className="card">
+              <span className="cardText">React, Next.js, TypeScript</span>
+            </div>
+            <div className="card">
+              <span className="cardText">Node.js, Express, MongoDB</span>
+            </div>
+            <div className="card">
+              <span className="cardText">AWS, Docker, CI/CD</span>
+            </div>
+            <div className="card">
+              <span className="cardText">UI/UX Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

@@ -248,7 +248,6 @@ button {
 
 .section {
   width: var(--section-width);
-  max-width: var(--section-max-width);
   margin: 0 auto;
   padding: var(--spacing-3xl) 0;
 }

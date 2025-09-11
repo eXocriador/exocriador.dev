@@ -1,15 +1,4 @@
+/* Portfolio Section - використовує глобальні стилі */
 .portfolioSection {
-  width: 100%;
-  min-height: 100vh;
-  border: 1px solid red;
-  border-radius: 10px;
-  background: linear-gradient(to top, #000000, #ffffff);
-  padding: 2rem;
-}
-
-.sectionTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: center;
+  background-color: var(--secondary-color);
 }

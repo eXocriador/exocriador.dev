@@ -1,43 +1,36 @@
+/* Hero Section - використовує глобальні стилі */
 .heroSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  border: 1px solid red;
-  border-radius: 10px;
-  background: linear-gradient(to top, #000000, #ffffff);
+  height: calc(100vh - 80px);
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.heroSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 80%,
+    var(--accent-color) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 80% 20%,
+    var(--accent-secondary) 0%,
+    transparent 50%
+  );
+  opacity: 0.1;
+  z-index: 1;
 }
 
 .sectionContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.sectionTitle {
-  font-size: 4rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  z-index: 2;
+  position: relative;
   text-align: center;
-}
-
-.sectionSubtitle {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.sectionButtons {
-  display: flex;
-  gap: 1rem;
-}
-
-.sectionButton {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: center;
+  padding: 0 var(--spacing-lg);
 }

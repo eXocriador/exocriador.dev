@@ -3,13 +3,18 @@ import styles from "./Hero.module.css";
 
 const Hero: React.FC = () => {
   return (
-    <section className={styles.heroSection}>
-      <div className={styles.sectionContent}>
-        <h1 className={styles.sectionTitle}>Hero Component</h1>
-        <h2 className={styles.sectionSubtitle}>Hero Component</h2>
-        <div className={styles.sectionButtons}>
-          <button className={styles.sectionButton}>Hero Component</button>
-          <button className={styles.sectionButton}>Hero Component</button>
+    <section className={`section ${styles.heroSection}`}>
+      <div className={`containerColumn ${styles.sectionContent}`}>
+        <h1 className="titleLarge">
+          Forging Ideas, Crafting Solutions
+        </h1>
+        <h2 className="subtitle">
+          Full-Stack Developer
+        </h2>
+
+        <div className="buttonGroup">
+          <button className="button buttonPrimary">View My Work</button>
+          <button className="button">Get In Touch</button>
         </div>
       </div>
     </section>
