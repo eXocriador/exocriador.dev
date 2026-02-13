@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Start",
+    "about": "Über mich",
+    "services": "Leistungen",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt",
+    "orderProject": "Projekt anfragen"
+  },
+  "home": {
+    "title": "Fertige Lösungen für Unternehmen jeder Komplexität",
+    "subtitle": "Ich entwickle Webanwendungen und Dienste nach Maß — von der Landingpage bis zur komplexen Plattform.",
+    "ctaAbout": "Über mich",
+    "ctaWork": "Meine Projekte"
+  },
+  "about": {
+    "title": "Über mich",
+    "narrative": "Seit über 5 Jahren verwandle ich Ideen in funktionierende Produkte: von einfachen Websites bis zu komplexen Geschäftslösungen. Fokus auf Zuverlässigkeit, Geschwindigkeit und Nutzererlebnis. Ich arbeite mit React, Node.js, TypeScript und modernem Stack.",
+    "techStackTitle": "Technologien"
+  },
+  "services": {
+    "title": "Leistungen",
+    "subtitle": "Kompletter Entwicklungszyklus — von der Idee bis zum Launch und Support.",
+    "frontend": {
+      "title": "Frontend",
+      "description": "Moderne Oberflächen mit React, Next.js, TypeScript. Schnell, barrierefrei und nutzerfreundlich.",
+      "features": "React & Next.js, TypeScript, responsiv, Performance"
+    },
+    "backend": {
+      "title": "Backend",
+      "description": "APIs, Datenbanken, Geschäftslogik. Node.js, PostgreSQL, Sicherheit und Skalierbarkeit.",
+      "features": "Node.js, REST API, PostgreSQL, Auth"
+    },
+    "design": {
+      "title": "UI/UX & Barrierefreiheit",
+      "description": "Responsive und barrierefreie Oberflächen nach WCAG.",
+      "features": "Mobile-first, Cross-Browser, WCAG"
+    },
+    "devops": {
+      "title": "DevOps & Deployment",
+      "description": "Docker, CI/CD, Cloud. Automatisierung von Build und Deployment.",
+      "features": "Docker, CI/CD, Cloud, Monitoring"
+    },
+    "custom": {
+      "title": "Individuelle Lösungen",
+      "description": "Von der Landingpage bis zur komplexen Webanwendung für Ihr Unternehmen.",
+      "features": "Aus einer Hand, Skalierbarkeit, Support"
+    },
+    "performance": {
+      "title": "Optimierung",
+      "description": "Schnellere Ladezeiten und flüssigere Anwendungsperformance.",
+      "features": "Geschwindigkeit, Caching, Monitoring"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Reale Projekte für Unternehmen und persönliche Cases.",
+    "viewLive": "Ansehen",
+    "viewCode": "Code"
+  },
+  "contact": {
+    "title": "Projekt besprechen?",
+    "subtitle": "Beschreiben Sie Ihr Anliegen — ich schlage Format und Zeitrahmen vor.",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "submit": "Senden",
+    "sending": "Wird gesendet...",
+    "success": "Nachricht gesendet. Ich melde mich bald.",
+    "error": "Fehler beim Senden. Bitte später erneut versuchen oder per Telegram schreiben."
+  },
+  "footer": {
+    "credits": "eXocriador — Entwicklung für Unternehmen.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram"
+  },
+  "theme": {
+    "light": "Hell",
+    "dark": "Dunkel"
+  }
+}

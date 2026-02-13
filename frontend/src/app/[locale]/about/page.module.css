@@ -1,0 +1,28 @@
+.section {
+  width: var(--section-width);
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.narrative {
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: var(--font-size-base);
+}
+
+.section h3 {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}

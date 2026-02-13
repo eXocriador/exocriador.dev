@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "contact": "Contacto",
+    "orderProject": "Encomendar projeto"
+  },
+  "home": {
+    "title": "Soluções prontas para negócios de qualquer complexidade",
+    "subtitle": "Desenvolvo aplicações e serviços web à medida — de landing pages a plataformas complexas.",
+    "ctaAbout": "Sobre mim",
+    "ctaWork": "Os meus projetos"
+  },
+  "about": {
+    "title": "Sobre mim",
+    "narrative": "Mais de 5 anos a transformar ideias em produtos funcionais: de sites simples a soluções de negócio complexas. Foco em fiabilidade, velocidade e experiência do utilizador. Trabalho com React, Node.js, TypeScript e stack moderno.",
+    "techStackTitle": "Tecnologias"
+  },
+  "services": {
+    "title": "Serviços",
+    "subtitle": "Ciclo completo de desenvolvimento — da ideia ao lançamento e suporte.",
+    "frontend": {
+      "title": "Frontend",
+      "description": "Interfaces modernas com React, Next.js, TypeScript. Rápidas, acessíveis e fáceis de usar.",
+      "features": "React & Next.js, TypeScript, responsivo, performance"
+    },
+    "backend": {
+      "title": "Backend",
+      "description": "APIs, bases de dados, lógica de negócio. Node.js, PostgreSQL, segurança e escalabilidade.",
+      "features": "Node.js, REST API, PostgreSQL, autenticação"
+    },
+    "design": {
+      "title": "UI/UX e acessibilidade",
+      "description": "Interfaces responsivas e acessíveis conforme WCAG.",
+      "features": "Mobile-first, cross-browser, WCAG"
+    },
+    "devops": {
+      "title": "DevOps e deployment",
+      "description": "Docker, CI/CD, cloud. Automação de build e deploy.",
+      "features": "Docker, CI/CD, cloud, monitorização"
+    },
+    "custom": {
+      "title": "Soluções à medida",
+      "description": "De landing page a aplicação web complexa para o seu negócio.",
+      "features": "Chave na mão, escalabilidade, suporte"
+    },
+    "performance": {
+      "title": "Otimização",
+      "description": "Tempos de carregamento e desempenho da aplicação otimizados.",
+      "features": "Velocidade, cache, monitorização"
+    }
+  },
+  "portfolio": {
+    "title": "Portfólio",
+    "subtitle": "Projetos reais para negócios e casos pessoais.",
+    "viewLive": "Ver site",
+    "viewCode": "Código"
+  },
+  "contact": {
+    "title": "Falar de um projeto?",
+    "subtitle": "Descreva a sua necessidade — sugiro formato e prazos.",
+    "name": "Nome",
+    "email": "Email",
+    "message": "Mensagem",
+    "submit": "Enviar",
+    "sending": "A enviar...",
+    "success": "Mensagem enviada. Responderei em breve.",
+    "error": "Erro no envio. Tente mais tarde ou escreva no Telegram."
+  },
+  "footer": {
+    "credits": "eXocriador — desenvolvimento para negócios.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Escuro"
+  }
+}

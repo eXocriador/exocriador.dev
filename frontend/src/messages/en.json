@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "orderProject": "Order Project"
+  },
+  "home": {
+    "title": "Ready solutions for business of any complexity",
+    "subtitle": "I build web applications and services tailored to your needs — from landing pages to complex platforms.",
+    "ctaAbout": "About me",
+    "ctaWork": "My work"
+  },
+  "about": {
+    "title": "About me",
+    "narrative": "Over 5 years turning ideas into working products: from simple sites to complex business solutions. Focus on reliability, speed and user experience. I work with React, Node.js, TypeScript and a modern stack.",
+    "techStackTitle": "Tech stack"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Full development cycle — from idea to launch and support.",
+    "frontend": {
+      "title": "Frontend",
+      "description": "Modern interfaces with React, Next.js, TypeScript. Fast, accessible and user-friendly.",
+      "features": "React & Next.js, TypeScript, responsive, performance"
+    },
+    "backend": {
+      "title": "Backend",
+      "description": "APIs, databases, business logic. Node.js, PostgreSQL, security and scalability.",
+      "features": "Node.js, REST API, PostgreSQL, auth"
+    },
+    "design": {
+      "title": "UI/UX & accessibility",
+      "description": "Responsive and accessible interfaces following WCAG standards.",
+      "features": "Mobile-first, cross-browser, WCAG"
+    },
+    "devops": {
+      "title": "DevOps & deployment",
+      "description": "Docker, CI/CD, cloud. Build and deployment automation.",
+      "features": "Docker, CI/CD, cloud, monitoring"
+    },
+    "custom": {
+      "title": "Custom solutions",
+      "description": "From landing pages to complex web applications for your business.",
+      "features": "Turnkey, scalability, support"
+    },
+    "performance": {
+      "title": "Optimization",
+      "description": "Faster load times and smoother application performance.",
+      "features": "Speed, caching, monitoring"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Real projects for business and personal case studies.",
+    "viewLive": "View live",
+    "viewCode": "Code"
+  },
+  "contact": {
+    "title": "Discuss a project?",
+    "subtitle": "Describe your needs — I'll suggest the format and timeline.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send",
+    "sending": "Sending...",
+    "success": "Message sent. I'll reply soon.",
+    "error": "Something went wrong. Try again later or message on Telegram."
+  },
+  "footer": {
+    "credits": "eXocriador — development for business.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

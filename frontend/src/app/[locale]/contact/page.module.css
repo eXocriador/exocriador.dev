@@ -1,0 +1,15 @@
+.section {
+  width: var(--section-width);
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-2xl);
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}

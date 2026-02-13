@@ -1,0 +1,237 @@
+.headerContainer {
+  position: fixed;
+  width: 100%;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-primary);
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+  z-index: 101;
+}
+
+.logo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo a:hover {
+  color: inherit;
+}
+
+.logoAccent {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  color: var(--text-secondary);
+  opacity: 0.9;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  position: relative;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+}
+
+.navLink:hover {
+  color: var(--accent-color);
+  opacity: 1;
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width var(--transition-normal);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.ctaButton {
+  border: 2px solid transparent;
+  border-radius: 50px;
+  padding: 12px 24px;
+  color: var(--text-primary);
+  background: linear-gradient(var(--primary-color), var(--primary-color))
+      padding-box,
+    linear-gradient(135deg, var(--accent-color), var(--accent-secondary))
+      border-box;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  min-height: var(--touch-target-size);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ctaButton:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--shadow-primary);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+  min-height: var(--touch-target-size);
+  min-width: var(--touch-target-size);
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+  transform-origin: center;
+}
+
+.hamburgerLine.active:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburgerLine.active:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerLine.active:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-color);
+  opacity: 0.95;
+  backdrop-filter: blur(20px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileMenuOverlay.active {
+  opacity: 0.95;
+  visibility: visible;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.mobileNavLink {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.5rem;
+  transition: all var(--transition-fast);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  min-height: var(--touch-target-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileNavLink:hover {
+  color: var(--accent-color);
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.localeSwitcher {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.localeLink {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.localeLink:hover,
+.localeLink.active {
+  color: var(--accent-color);
+  background: rgba(255, 107, 53, 0.1);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .ctaButton {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+  }
+
+  .controls {
+    gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .localeSwitcher {
+    display: none;
+  }
+}
